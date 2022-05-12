@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+
+                            **Programming Assignment 1: Power Set**
+
+
+# Task Description
+    Print out the powerset of $[n]=\{1,2,\cdots, n\}$, where n ($2\leq n \leq 20$) is an integer from user input.
+
+-  __Sample input:__ 4
+-  __Sample output:__ E, $\{1\}$, $\{2\}$, $\{3\}$, $\{4\}$, $\{1,2\}$, $\{1,3\}$, $\{1,4\}$,$\{2,3\}$, $\{2, 4\}$, $\{3,4\}$,$\{1,2,3\}$,$\{1,2,4\}$, $\{1,3,4\}$, $\{2,3,4\}$, $\{1,2,3, 4\}$
+
+Please note that we use $E$ for emptyset $\emptyset$ in the above output for convenience.
+
+# Submission
+
+ 1. Snapshots of your program running n=4 and n=5.
+ 2. Your source code.
+    * **individual** source code files.
+    * and a .zip file contains all the files of your project.
+
+ Please follow the above submission format. This will save both your time and mine.
+# Algorithms
+I mentioned backtracking algorithm in class. However, it involves the notion of recursion, which we will discuss later in the semester.
+
+ Another way to solve the problem is by bitmasking, which does not involves recursion. It is sufficient to use this approach in the current assignment. If you feel comfortable and confident using recursion, you can also use backtracking. You can find a discussion of both algorithms in this [article](https://afteracademy.com/blog/print-all-subsets-of-a-given-set). Pseudo Codes are provided in the article. Note that pseudo codes are just plain language explaining algorithm design ideas. You still need to implement it in your chosen programming language (Java, C/C++, ...). Here is the pseudo code for the bitmasking algorithm, in case for any reason you can not open the above link.
+
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+ Void allSubset(int S[], int n)
+{
+    int subset_size = pow(2, n)
+    int index, i
+    //Run from index 000..0 to 111..1
+    for(index from 0 to subset_size)
+    {
+        int subset[n]
+        for(i from 0 to n)
+        {
+            // Check if jth bit in the index is set
+            // If set then add jth element to the subset
+            if(index & (1 << i))
+                subset[i] = S[i]
+        }
+       print(subset)
+    }
+}
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Useful fact**. The size of the powerset of S of size $n$ is $2^n$.
+
+**Bitmasking**. You can find a short tutorial on bitmasking trick [here](https://discuss.codechef.com/t/a-small-tutorial-on-bitmasking/11811).
+
+
+
+<!-- Markdeep footer -->
+    <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+    <script src="markdeep.min.js"></script>
+    <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+    <script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

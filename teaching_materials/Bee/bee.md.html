@@ -1,0 +1,226 @@
+<meta charset="utf-8">
+
+                            **How to use Beecrowd**
+
+# Key Takeaways
+    1. Use only standard input/output for your I/O.
+    2. If you are using Java, you main function must be in a class named **Main**. Similarly for the the Object-oriented languages.
+    3. Don't add any extra white spaces than needed in your output.
+    4. You need to paste all your code in one file, and then paste it to the entry box in Beecrowd.
+
+# How to enroll on the Course page
+[Beecrowd](https://www.beecrowd.com.br) is an online judge platform we adopt for CSC 482. Typically this kind of systems are use for [competitive programming](https://en.wikipedia.org/wiki/Competitive_programming) or Online programming site for programmer job hunting, see [LeetCode](https://leetcode.com/). We use Beecrowd since its premium features are free for educational purposes.
+It is a site original from Brazil, and called URI online. Please keep an open mind when you see Portuguese pops up somewhere on the site. That will not in any way affect the use of it. For an general introduction of Beecrowd (a.k.a. URI Online Judge), you can check out [this paper](URI-OJ.pdf). In this document, I will give you a tour on what information I deemed helpful, to smooth your experience with Beecrowd.
+## Enrolling
+To enroll, you need to do:
+Step 1: click **Academic** tab on your home page.
+![Academic tab](academic.png)
+Step 2: A course on Beecrowd is call a **DISCIPLINE**. You can first click the JOIN DISCIPLINE button after you login.
+
+ Then you will need to enter the course information.
+
+  1. By the Key I sent through announcements.
+      - Couse number: 8401
+      - Key: XIcZ1Vt
+    Don't type it. Copy it! Since the letters "I", "l", and digit "1" is hard to distinguish.
+  2. Invitation email. I will also send out invitations to your UIS email.
+
+## Names
+ You need to use the same name as appears on Canvas. So I know who you are on Beecrowd.
+
+# How does a online judge system work?
+
+## Problem description
+
+Instead of talking about how it works **online**, I will just give you a local example. Usually there are three things you need to define a problem.
+
+- Problem statement. Sometimes concise and precise mathematical definition of a problem is also provided.
+- Input format  (sample input)
+- Output format (sample output)
+
+The toy problem I will use here.
+
+**Problem Statement:**
+
+Given two numbers, output their sum and difference. The input file can contain multiple pair of numbers.
+Each pair appears in one line, separated by a space. The file will end with two $ signs.
+
+Formally, for a, b in each line of a file, output a+b, and a-b.
+
+__Sample input:__
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~text
+8 5
+4 9
+1 3
+$ $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+__Sample output:__
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~text
+13 3
+13 -5
+4 -2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## Local solution
+
+The problem, as we can see, is easy to solve.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+import java.io.File;
+import java.util.Scanner;
+public class SumDiff{
+    public static void main(String[] args) throws Exception {
+        Scanner input= new Scanner(new File("./input.txt"));
+        while(input.hasNextInt())
+        {
+            int a=input.nextInt();
+            int b=input.nextInt();
+            System.out.println((a+b) + " "+ (a-b));
+        }
+        input.close();
+
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The code depends on a file [input.txt](input.txt) on local directory. Say the judge has a solution key store in the file [solution_key.txt](solution_key.txt). To judge if you have a correct solution, the judge just need to run you code and compare your solution.
+
+### Comparison criteria:
+
+The criteria is extremely simple: **Your solution and the key must be exactly the same, including spaces! So don't add extra unnecessary spaces in your output at all!**
+
+To compare if two files are the same, on Linux/Mac, you can use a program/command named _diff_. On Windows, you can use [FC](https://stackoverflow.com/questions/6877238/what-is-the-windows-equivalent-of-the-diff-command).
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Shell
+diff output.txt solution_key.txt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+where [output.txt](output.txt) stores the output of the above Java program.
+
+![](diff.png)
+As we can from the result of screen shot, _diff_ found no difference between the two files.
+However, if I modify the output slightly, say, by adding an extra space in between two numbers. It will be caught by _diff_.
+
+The modified output file, [output2](output2.txt) now look like
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~text
+13 3
+13  -5
+4 -2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Note that the only change we made is the second line. There is a extra space in between "13 -5". Now it becomes "13  -5".
+Therefore, _diff_ catches it.
+![](diff2.png)
+The first line of the output says what the line looks like int _output2.txt_ and the second in _solution_key.txt_.
+So again, **So don't add extra unnecessary spaces in your output at all!** Anything unmatched will be counted as **wrong** solution.
+
+
+## Big issues when it comes to online
+So far the judge workflow works well. But when you provide the above local judge to others, there will be some big issues.
+
+1. Which program should we run?
+2. What file should we read in as input?
+3. Where do we output?
+
+### Which program should we run?
+In the above, since everything happen locally, you know that the program/class that contains entry point of the program, or _main_ functions is _SumDiff_. But when you put the judge online, and your user can use any arbitrary names for their program. How do you know which contains the _main_ function? (This will not be a problem for C program or Python program, since their _main_ function is _main()_).
+
+So we have to make following convention. **The class that contains main() function must be named Main**. My example is for Java, you might want to find out the constrain for your specific language of choice. In Java, Beecrowd will always run a class named **Main**. Make sure you have that!
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+import java.io.IOException;
+
+/**
+ * IMPORTANT:
+ *
+ *      Class name must be "Main" for your solution to execute
+ *
+ */
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        /**
+         * Escreva a sua solução aqui
+         * Code your solution here
+         * Escriba su solución aquí
+         */
+
+    }
+
+}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+![](main.png)
+
+### Default Input/Output
+My local judge also depends on knowing what the input and output files are. There for we also need to have a convention on that. Well, one might can just assume some fixed names for input and output files. But a more common practice is to I/O-redirection and treat every I/O as standard I/O.
+
+- Recall that standard input is keyboard input, standard output is monitor output.
+- By redirecting I/O, we can pretend that we are reading from standard I/O, even when we actually read it from a file! That is, you **feed** files to standard input, or **feed** standard output to files.
+- In Java, standard I/O is _System.in_ and _System.out_. In C, it is _stdin_ and _stdout_.
+
+Example of feeding file(_input.txt_) to Standard input on terminal:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Shell
+java SumDiff < input.txt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Accordingly, we need to change the behavior of our program, to not read input from a file, but from _System.in_.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+import java.util.Scanner;
+public class SumDiff{
+    public static void main(String[] args) throws Exception {
+        Scanner input= new Scanner(System.in);
+        while(input.hasNextInt())
+        {
+            int a=input.nextInt();
+            int b=input.nextInt();
+            System.out.println((a+b) + " "+ (a-b));
+        }
+        input.close();
+
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To redirect output to a file(output.txt) on terminal:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Shell
+java SumDiff < input.txt > output.txt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Note that
+
+ - "<" is for input redirection.
+ - ">" is for output redirection.
+ - You can use ">>" to attach output to the end of an existing file.
+
+ ### I/O Takeaways
+
+Luckily, you don't need to do any of the above I/O redirection, that is one how Beecrowd will do it on its sever! For us, we just need to remember
+
+ - **whenever we read, read from standard input.**
+ - **whenever we write, write to standard output.**
+
+ # How to Test your Code
+
+ **Don't try to debug on Beecrowd**, it will not tell you a lot of information. Instead, you can download all the test cases and run them on your local machine, with your favorite IDE.
+
+ You can find tests through the **UDEBUG** tab. I will also provide all the test cases for you, too.
+
+ - Don't forget to remove **all** of your testing code, especially those extra output commands!
+ - Don't forget to change all I/O back to standard I/O if you ever change them to read/write from local files.
+
+
+ ![](debug.png)
+
+
+ # How to submit your code
+
+ Beecrowd just have one text entry box. You might want to paste all your code into one file, and then copy the content of the file to the entry box.
+
+
+<!-- Markdeep footer -->
+    <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+    <script src="markdeep.min.js"></script>
+    <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+    <script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

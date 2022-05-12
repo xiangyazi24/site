@@ -1,0 +1,76 @@
+<meta charset="utf-8">
+
+                            **Programming Assignment 2: Derangements**
+
+
+# Task Description
+    Print out all the derangement of $[n]=\{1,2,\cdots, n\}$, where n ($2\leq n \leq 20$) is an integer from user input.
+
+-  __Sample input:__ 3
+-  __Sample output:__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ sh
+ 2 3 1
+ 3 1 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# Submission
+
+ 1. Snapshots of your program running n=4 and n=5.
+ 2. Your source code.
+    * **individual** source code files.
+    * and a .zip file contains all the files of your project.
+
+ Please follow the above submission format. This will save both your time and mine.
+
+# Algorithm
+You might want to base you algorithm on the recurrence relations we deducted in class. Please DO NOT use the naive algorithm to generate all the permutations and then check for derangements.
+\[
+    \begin{cases}
+     D(1)= 0; \\
+     D(2)= 1; \\
+     D(n)= (n-1)\big[D(n-1)+ D(n-2)\big]
+    \end{cases}
+\]
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~python
+
+  dict={1:1, 2:2,..., n:n} # before derange
+  done={}  # deranged, empty at the beginning
+  function derange(dict, done)
+    if dict.size == 0  #successful
+        print done
+        return
+    if dict.size == 1 # fail
+        return
+    Let n be the last key  of dict
+    # swapping
+    for i in keys of dict that is not n:
+        swap the value of n and i, i.e., if {n:v_1, i: v_2} originally, changed it to
+        {n:v_2, i: v_1}
+        remove {n:v_2, i: v_1} from dict
+        add {n:v_2, i: v_1} to done
+        # recursive call
+        derange(dict, done)
+        # recover, backtrack; prepare for the next loop
+        remove {n:v_2, i: v_1} from done
+        update {n:v_1, i: v_2} in dict
+    # no swapping
+     for i in keys of dict that is not n # swap:
+        swap the value of n and i, i.e., if {n:v_1, i: v_2} originally, changed it to
+        {n:v_2, i: v_1}
+
+        remove {n:v_2} from dict
+        add {n:v_2} to done
+        #recursive call
+        derange(dict, done)
+        # recover, backtrack; prepare for the next loop
+        remove {n:v_2} from done
+        update {n:v_1,  i: v_2} in dict
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The above pseudocode is written in Python style. You can fill in the details to implement your own version. If you decide not to use dictionary data structure. You can also use array. To implement `done` data structure about, you might want to an extra array as bitmask.
+
+<!-- Markdeep footer -->
+    <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+    <script src="markdeep.min.js"></script>
+    <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+    <script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

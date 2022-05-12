@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pentomino Puzzle Solutions.  R. A. Nonenmacher, 18-Jul-2008 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" width="625" height="575">
+
+<defs>
+
+<g id="I" fill="#EEAAAA" stroke="#000000" stroke-width="0.25">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="0" y="75"/>
+   <rect width="25" height="25" x="0" y="100"/>
+   <rect width="25" height="125" fill="none" stroke-width="3" x="0" y="0"/>
+</g>
+<g id="F" fill="#DDBB99" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="25" y="0"/>
+   <rect width="25" height="25" x="-25" y="25"/>
+   <polygon fill="none" stroke-width="3" points=" 0,  0                                                  50,  0                                                  50, 25                                                  25, 25                                                  25, 75                                                   0, 75                                                   0, 50                                                 -25, 50                                                 -25, 25                                                   0, 25                                                   0,  0"/>
+</g>
+<g id="L" fill="#CCCC88" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="0" y="75"/>
+   <rect width="25" height="25" x="25" y="75"/>
+   <polygon fill="none" stroke-width="3" points=" 0,  0                                                  25,  0                                                  25, 75                                                  50, 75                                                  50, 100                                                   0, 100                                                   0,  0"/>
+</g>
+<g id="P" fill="#BBDD99" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="25" y="0"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <polygon fill="none" stroke-width="3" points=" 0,  0                                                  50,  0                                                  50, 50                                                  25, 50                                                  25, 75                                                   0, 75                                                   0,  0"/>
+</g>
+<g id="H" fill="#AAEEAA" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="25" y="50"/>
+   <rect width="25" height="25" x="25" y="75"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  50                                                  50,  50                                                  50, 100                                                  25, 100                                                  25,  75                                                   0,  75                                                   0,   0"/>
+</g>
+<g id="T" fill="#99DDBB" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="25" y="0"/>
+   <rect width="25" height="25" x="50" y="0"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <rect width="25" height="25" x="25" y="50"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  75,   0                                                  75,  25                                                  50,  25                                                  50,  75                                                  25,  75                                                  25,  25                                                   0,  25                                                   0,   0"/>
+</g>
+<g id="U" fill="#88CCCC" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <rect width="25" height="25" x="50" y="25"/>
+   <rect width="25" height="25" x="50" y="0"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  25                                                  50,  25                                                  50,   0                                                  75,   0                                                  75,  50                                                   0,  50                                                   0,   0"/>
+</g>
+<g id="V" fill="#99BBDD" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="25" y="50"/>
+   <rect width="25" height="25" x="50" y="50"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  50                                                  75,  50                                                  75,  75                                                   0,  75                                                   0,   0"/>
+</g>
+<g id="W" fill="#AAAAEE" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <rect width="25" height="25" x="25" y="50"/>
+   <rect width="25" height="25" x="50" y="50"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  25                                                  50,  25                                                  50,  50                                                  75,  50                                                  75,  75                                                  25,  75                                                  25,  50                                                   0,  50                                                   0,   0"/>
+</g>
+<g id="X" fill="#BB99DD" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="-25" y="25"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  25                                                  50,  25                                                  50,  50                                                  25,  50                                                  25,  75                                                   0,  75                                                   0,  50                                                 -25,  50                                                 -25,  25                                                   0,  25                                                   0,   0"/>
+</g>
+<g id="Y" fill="#CC88CC" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="0" y="25"/>
+   <rect width="25" height="25" x="0" y="50"/>
+   <rect width="25" height="25" x="0" y="75"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  25,   0                                                  25,  25                                                  50,  25                                                  50,  50                                                  25,  50                                                  25, 100                                                   0, 100                                                   0,   0"/>
+</g>
+<g id="Z" fill="#DD99BB" stroke-width="0.25" stroke="#000000">
+   <rect width="25" height="25" x="0" y="0"/>
+   <rect width="25" height="25" x="25" y="0"/>
+   <rect width="25" height="25" x="25" y="25"/>
+   <rect width="25" height="25" x="25" y="50"/>
+   <rect width="25" height="25" x="50" y="50"/>
+   <polygon fill="none" stroke-width="3" points=" 0,   0                                                  50,   0                                                  50,  50                                                  75,  50                                                  75,  75                                                  25,  75                                                  25,  25                                                   0,  25                                                   0,   0"/>
+</g>
+</defs>
+
+<g transform="translate(25, 25)">
+<use xlink:href="#F" transform="matrix( 0, 1,-1, 0, 175,  75 )"/>
+<use xlink:href="#H" transform="matrix( 0,-1,-1, 0, 200, 150 )"/>
+<use xlink:href="#I"/>
+<use xlink:href="#L" transform="matrix( 0, 1, 1, 0, 125,  25 )"/>
+<use xlink:href="#P" transform="matrix( 1, 0, 0, 1,  25,   0 )"/>
+<use xlink:href="#T" transform="matrix( 1, 0, 0,-1,   0, 150 )"/>
+<use xlink:href="#U" transform="matrix( 0, 1, 1, 0, 200,  75 )"/>
+<use xlink:href="#V" transform="matrix( 0, 1, 1, 0, 175,   0 )"/>
+<use xlink:href="#W" transform="matrix( 1, 0, 0, 1,  50,  75 )"/>
+<use xlink:href="#X" transform="matrix( 1, 0, 0, 1,  75,  25 )"/>
+<use xlink:href="#Y" transform="matrix( 0, 1, 1, 0,  75,   0 )"/>
+<use xlink:href="#Z" transform="matrix( 1, 0, 0, 1, 150,  50 )"/>
+<text font-size="20" x="260" y="85">6 × 10</text></g>
+
+<g transform="translate(25, 200)">
+<use xlink:href="#F" transform="matrix( 1, 0, 0, 1, 200,  50 )"/>
+<use xlink:href="#H" transform="matrix( 1, 0, 0, 1,  25,   0 )"/>
+<use xlink:href="#I" transform="matrix( 0, 1, 1, 0,   0, 100 )"/>
+<use xlink:href="#L"/>
+<use xlink:href="#P" transform="matrix( 0, 1, 1, 0,  50,   0 )"/>
+<use xlink:href="#T" transform="matrix( 1, 0, 0,-1, 125, 125 )"/>
+<use xlink:href="#U" transform="matrix( 1, 0, 0, 1,  75,  50 )"/>
+<use xlink:href="#V" transform="matrix(-1, 0, 0, 1, 300,  50 )"/>
+<use xlink:href="#W" transform="matrix( 1, 0, 0,-1, 100,  75 )"/>
+<use xlink:href="#X" transform="matrix( 1, 0, 0, 1, 175,   0 )"/>
+<use xlink:href="#Y" transform="matrix( 0, 1, 1, 0, 200,   0 )"/>
+<use xlink:href="#Z" transform="matrix(-1, 0, 0, 1, 300,  25 )"/>
+<text font-size="20" x="310" y="70">5 × 12</text></g>
+
+<g transform="translate(25, 350)">
+<use xlink:href="#F" transform="matrix( 0, 1,-1, 0, 325,  25 )"/>
+<use xlink:href="#H" transform="matrix( 0, 1, 1, 0,  75,   0 )"/>
+<use xlink:href="#I" transform="matrix( 0, 1, 1, 0, 150,   0 )"/>
+<use xlink:href="#L" transform="matrix( 1, 0, 0,-1,   0, 100 )"/>
+<use xlink:href="#P" transform="matrix( 1, 0, 0,-1, 100, 100 )"/>
+<use xlink:href="#T" transform="matrix( 1, 0, 0,-1, 300, 100 )"/>
+<use xlink:href="#U" transform="matrix( 1, 0, 0, 1,  25,  50 )"/>
+<use xlink:href="#V" transform="matrix( 0, 1, 1, 0, 300,   0 )"/>
+<use xlink:href="#W" transform="matrix( 1, 0, 0,-1, 150, 100 )"/>
+<use xlink:href="#X" transform="matrix( 1, 0, 0, 1,  50,   0 )"/>
+<use xlink:href="#Y" transform="matrix( 0,-1, 1, 0, 175, 100 )"/>
+<use xlink:href="#Z" transform="matrix( 0, 1, 1, 0, 225,  25 )"/>
+<text font-size="20" x="385" y="60">4 × 15</text></g>
+
+<g transform="translate(25, 475)">
+<use xlink:href="#F" transform="matrix( 0, 1,-1, 0, 300, 25 )"/>
+<use xlink:href="#H" transform="matrix( 0,-1,-1, 0, 275, 75 )"/>
+<use xlink:href="#I" transform="matrix( 0, 1, 1, 0,  75, 50 )"/>
+<use xlink:href="#L" transform="matrix( 0, 1,-1, 0, 250,  0 )"/>
+<use xlink:href="#P" transform="matrix( 0, 1,-1, 0, 150,  0 )"/>
+<use xlink:href="#T" transform="matrix( 1, 0, 0, 1, 275,  0 )"/>
+<use xlink:href="#U" transform="matrix( 0, 1,-1, 0,  50,  0 )"/>
+<use xlink:href="#V" transform="matrix( 0, 1, 1, 0, 425,  0 )"/>
+<use xlink:href="#W" transform="matrix( 1, 0, 0,-1, 325, 75 )"/>
+<use xlink:href="#X" transform="matrix( 1, 0, 0, 1,  50,  0 )"/>
+<use xlink:href="#Y" transform="matrix( 0,-1, 1, 0, 350, 75 )"/>
+<use xlink:href="#Z" transform="matrix( 0, 1, 1, 0, 400,  0 )"/>
+<text font-size="20" x="510" y="45">3 × 20</text></g></svg>
