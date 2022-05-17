@@ -168,7 +168,7 @@ Now the Dancing Link data structure is given, you should be able to implement it
             DataNode temp = null;
             ArrayList<Integer> row = matrix.get(r);
             for(int i=0; i < row.size(); i++) {
-                if(row.get(i) == 1) { //binary encoding -> integer encoding
+                if(row.get(i) == 1) { //binary encoding -> integer encoding.
                     ColumnNode colHead = columnNodesList.get(i);
                     DataNode newNode = new DataNode(colHead);
                     if(temp == null) temp = newNode;
