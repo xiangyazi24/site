@@ -160,27 +160,8 @@ Now the Dancing Link data structure is given, you should be able to implement it
 
     If you use binary representation, you need to change the *buildDancingLinks()* in DLX.java slightly:
 
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-        private void buildDancingLinks(ArrayList<ArrayList<Integer>> matrix) {
-        int nRows = matrix.size();
+    <img src="binary-to-integer.png" width="800" border="2" caption="Turn binary encoding to integer encoding">
 
-        for(int r=0; r < nRows; r++) {
-            DataNode temp = null;
-            ArrayList<Integer> row = matrix.get(r);
-            for(int i=0; i < row.size(); i++) {
-                if(row.get(i) == 1) { //binary encoding -> integer encoding.
-                    ColumnNode colHead = columnNodesList.get(i);
-                    DataNode newNode = new DataNode(colHead);
-                    if(temp == null) temp = newNode;
-                    colHead.U.linkDown(newNode);
-                    temp = temp.linkRight(newNode);
-                    colHead.columnSize++;
-                }
-            }
-        }
-    }
-
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     If you plan to use integer representation directly, you can ignore the above change of the method.
 
    2. Use Dancing Links to implement algorithm X for Exact Cover.
