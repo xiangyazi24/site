@@ -62,7 +62,7 @@
 \begin{frame}{Why computing real numbers?}
 \begin{itemize}
     \item Theoretical benchmark. (Turing 1936, computable numbers. We now consider analog models.) \pause
-    \item Complicated systems not based on concrete bio-chemical problems. \pause
+    \item Complicated systems not based on concrete biochemical problems. \pause
     \item Guide algorithm design.
 \end{itemize}
 \end{frame}
@@ -89,7 +89,7 @@ Some basic properties:
 Extra requirement and property:
 \begin{itemize}
     \item They systems must have finitely many equilibria.
-    \item The computing result does not depend on initial values.
+    \item The computing result usully does not depend on initial values.
 \end{itemize}
 
 \end{frame}
@@ -125,6 +125,13 @@ Church-Turing thesis: All powerful enough models are equivalent (in some sense).
 Or can LPPs ``compute'' at least some transcendental numbers in some way?
 \end{frame}
 
+\begin{frame}
+    \begin{figure}[tb]
+        \centering
+        \includegraphics[scale=1.8]{bridge}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Example of a System with a continuum of equilibria}
 \begin{example}[Titus Klinge]
    Let $F(t)= \frac{1}{2}e^{e^{-t} -1}$, $E(t)= \frac{1}{2}e^{-t}$, and $G(t)$ be a function such that its derivative ``cancels'' with $E$ and $F$'s derivative.
@@ -143,7 +150,7 @@ Or can LPPs ``compute'' at least some transcendental numbers in some way?
 \end{equation*}
 with initial values $F(0)=\frac{1}{2}$, $E(0)=\frac{1}{2}$, and $G(0)=0$. Clearly, $F(t)\to \frac{1}{2e}$
 \end{example}
-\textbf{The system has all the F-G plan as equilibria.}
+\textbf{The system has all the F-G plan as equilibria.} We know the solution so we know where the system goes.
 \end{frame}
 
 
@@ -157,7 +164,7 @@ simulating and visualizing population protocols.})
 \end{frame}
 
 
-\begin{frame}{Today}
+\begin{frame}[Clean]{Today}
 \begin{todaythm}[Huang and Huls]
     LPPs compute the same set of numbers in [0,1] as GPACs
 and CRNs.
@@ -169,8 +176,9 @@ and CRNs.
 \end{itemize}\pause
 Byproducts:
 \begin{enumerate}
-    \item fixes Bournez et. al.'s algebraic number proof.
-    \item gives an algorithm turning CRNs into PPs.
+    \item We fix Bournez et. al.'s algebraic number proof.
+    \item We give an algorithm turning CRNs into PPs.
+    \item We can compute fancy real numbers such as Euler's $\gamma$ with population protocol!
 \end{enumerate}
 \end{frame}
 
@@ -180,7 +188,7 @@ Byproducts:
         Stochastic CRNs agree with their continuous model almost surely when population goes to infinity.
     \end{kurtz}
 
-To simplify our discussion in this talk, we treat population protocols as two-input two output CRNs with deterministic mass-action semantic, under large population assumption.
+To simplify our discussion in this talk, we treat population protocols as two-input-two-output CRNs with deterministic mass-action semantic, under large population assumption.
 \end{frame}
 \begin{frame}{LPP-Computable number: Formal Definition}
 \begin{definition}
@@ -230,13 +238,13 @@ appear as a reactant in the reaction.
 \begin{enumerate}
     \item Must first be CRN. $x_i^{\ \prime}=p_i(x_1,\cdots, x_n)-q_i(x_1,\cdots, x_n)x_i,$
     \item Must preserve population. $\sum_{i} x_i^{\ \prime}$ = 0.
-    \item $p_i$ does not have $x_i^2$ term.
+    \item $p_i$ does not have any $x_i^2$ term.
 \end{enumerate}
 The third bullet is because a two-input-two-output reaction like
 \[
     X_i + X_i \to  Y + W
 \]
-can not increase $X_i$ anymore.
+can not increase $X_i$.
 \end{frame}
 
 \begin{frame}{GPAC Example}
@@ -271,10 +279,9 @@ with $f(0)=g(0)=u(0)=w(0)=q(0)=0$ and $v(0)=r(0)=p(0)=1$.
 \end{frame}
 
 \begin{frame}{The bag of tricks}
-Given an ODE system $\bx'= p(\bx)$ with $\lim_{x}x_1 \to \alpha $, where $\alpha$ is a targeting number.
+Given an ODE system $\bx'= p(\bx)$ with $\displaystyle\lim_{t\to \infty}x_1(t) \to \alpha $, where $\alpha$ is a targeting number.
     \begin{enumerate}
         \item Rewrite the system with a new set of auxiliary variables.
-        \item Rewrite the system with $\sum_i x_i = 1$.
         \item Dilate the system by a new time function.
         \item Taking product of the system.
         \item  ...
@@ -298,7 +305,7 @@ Given an ODE system $\bx'= p(\bx)$ with $\lim_{x}x_1 \to \alpha $, where $\alpha
     A PP preserves population/mass.
 
     \begin{quest}
-        Given a CRN $\bx=(x_1,\cdots, x_n)$, how could we make it preserves population/mass to begin with?
+        Given a CRN $\bx=(x_1,\cdots, x_n)$, how could we make it preserve population/mass?
     \end{quest}\pause
     \begin{itemize}
         \item add a new variable $x_0$. \pause
@@ -345,7 +352,7 @@ x_0'    &= -\sum\limits_{i=1}^4
 x_i'\end{aligned}\right\}
     \]
 \begin{itemize}
-    \item every negative terms of $x_0'$ now always has $x_0$.
+    \item every negative term of $x_0'$ now always has $x_0$.
     \item but now the system is of degree 3 (termolecular system)!
     \item $x_0'$ does not have positive $x_0^3$ term.
 \end{itemize}
@@ -384,7 +391,7 @@ Let $\bx(t)$ be the solution of $\bx' = p(\bx)$, where $\bx=(x_1, \cdots, x_n)$ 
 \end{columns}
 \end{frame}
 
-\begin{frame}{Balancing Dilation}
+\begin{frame}[Clean]{Balancing Dilation}
 \[
 \begin{cases}
   x_i' = (p_i - q_i \cdot x_i)\cdot x_0,  \quad \text{for $i\in\{1, \cdots, n\}$}\\
@@ -395,6 +402,11 @@ Let $\bx(t)$ be the solution of $\bx' = p(\bx)$, where $\bx=(x_1, \cdots, x_n)$ 
     \item The function $x_0$ is not known in advance.
     \item It is determined by the ODE above.
     \item How time dilates depends on / customizes to the original system $\bx$.
+    \item The behavior of the new system at time $t$ corresponds to that of the old system at time $\int_0^{t}x_0(t)dt$.
+    \item As long as $\int_0^{\infty}x_0 = \infty$, the new solution
+    \[
+        x_1(\int_0^{t}x_0) \to \alpha \quad\text{as $t\to\infty$.}
+    \]
 \end{itemize}
 \end{frame}
 
@@ -423,6 +435,13 @@ Let $\bx(t)$ be the solution of $\bx' = p(\bx)$, where $\bx=(x_1, \cdots, x_n)$ 
             \item Then avoid $z_{i,j}^2$ term in $z_{i,j}'$.
         \end{itemize}
      $x_1 x_2 x_4 x_5 = z_{1,2} \cdot z_{4,5}$ = $ z_{2,4}\cdot z_{1,5}$, etc.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Cont.}
+We then have
+    \begin{itemize}
+        \item $x_1 = \displaystyle\sum_{j=0}^{n} z_{1,j}$. That is, the sum of $z_{1,j}$ trace the value of $x_1$. Hence computes $\alpha$.
+        \item The z-system is implementable by population protocol.
     \end{itemize}
 \end{frame}
 \section{Future work}
@@ -458,6 +477,17 @@ We begin with allowing rational number as initial values and rate constants. The
 \[
     R_0 \stackrel{?}{=} \bigcup_{i=0}^{\infty}R_i.
 \]
+\end{frame}
+
+\begin{frame}
+    \huge{Thank you for your time!}
+
+    \vspace{0.5cm}
+    \normalsize{}
+    \begin{itemize}
+        \item This research was supported in part by NSF grants 1545028 and 1900716.
+        \item Rachel N. Huls : This research was supported in part by the University of Illinois Springﬁeld Leadership Lived Experience (LLE) initiative.
+    \end{itemize}
 \end{frame}
 
 \end{document}
