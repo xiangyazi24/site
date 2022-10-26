@@ -27,10 +27,10 @@ Since there are 5 grids in a piece of pentomino and there are in total 12 pieces
 
 We first consider rectangles. There are four possible cases. The corresponding number of solutions are listed below.
 
-- 3 x 20..........................2
-- 4 x 15..........................368
-- 5 x 12..........................1010
-- 6 x 10..........................2339
+- **3 x 20..........................2**
+- **4 x 15..........................368**
+- **5 x 12..........................1010**
+- **6 x 10..........................2339**
  ![Solutions of $3\times 20$](Pent_3by20.png)
 
 You can find the solutions of other possible configurations on [this page](https://isomerdesign.com/Pentomino/), for example,
@@ -81,6 +81,26 @@ static final int[][] F = {{1, -1, 1, 0, 1, 1, 2, 1}, {0, 1, 1, -1, 1, 0, 2, 0},
     {0, 1, 1, 1, 1, 2, 2, 1}, {1, -1, 1, 0, 1, 1, 2, -1}, {1, -1, 1, 0, 2, 0, 2, 1}};
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As we discussed above, in order to avoid trivial solutions,
+you might want to restrict/normalize the orientation of F or V (**not both**).
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+static final int[][] F = {{1, -1, 1, 0, 1, 1, 2, 1}, {0, 1, 1, -1, 1, 0, 2, 0}}; //normalized
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+or
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
+
+    static final int[][] V = {{1, 0, 2, 0, 2, 1, 2, 2}}; //normalized
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
 After we finish encoding all the shapes, we can put them altogether, in an array of 3 dimensions.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
 static final int[][][] shapes = {F, I, L, N, P, T, U, V, W, X, Y, Z};
@@ -183,7 +203,7 @@ Now the Dancing Link data structure is given, you should be able to implement it
 
    2. Screenshot(s) of the results of your program for all the required input (3, 4,5, and 6).
 
-   3. A document in PDF format describing how you encode/reduce the Pentomino problem into the Exact Cover Problem. You can do your research but you have to write it in your own words.
+   3. A document in PDF format describing how you encode/reduce the Pentomino problem into the Exact Cover Problem. You can do your research but you have to write it in your own words. I also attached a [sample report](Sample_Report.pdf) for your reference.
 
    4. A .zip that contains everything!
 
