@@ -412,7 +412,9 @@ In this case it really isn't necessary to use indirect recursion, as this algori
 
 # Tail Recursion
 Tail recursion, sometimes called "tail call", is a form of recursion where the last statement of a recursive method is the recursive call. Consider the following recursive algorithms for computing factorial values:
+
 **Standard Recursion**
+
 ```{c eval=FALSE}
 int factorial(int n)
 {
