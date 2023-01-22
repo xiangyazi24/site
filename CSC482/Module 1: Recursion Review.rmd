@@ -11,6 +11,7 @@ output:
     citation_package: natbib
     latex_engine: xelatex   
 link-citations: yes
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +21,7 @@ knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
-# Introduction 
+# Introduction
 
 Recursion is a commonly used, yet often difficult to grasp problem solving technique. Recursion itself is not an algorithm, but a process that can be implemented as part of an algorithm. The notion of recursion sometimes conjures up mental images like the one shown below, which is reminiscent of what one might see when two mirrors are placed so they are facing each other, allowing an image to be reflected back and forth indefinitely:
 
@@ -30,7 +31,7 @@ We may think about solving a problem recursively during the process of problem d
 
 In order for recursion to work, however, there must be a **base case**, which can be computed without using recursion. The base case serves as a termination point for recursion. Without a base case, infinite recursion results, which is similar to an infinite loop. A base case is conspicuously absent in the above diagram.
 
-# Some Classical Examples of Recursive Problems 
+# Some Classical Examples of Recursive Problems
 
 Examples of problems that lend themselves to recursive solutions abound. We'll look briefly at a few of the more classical examples of recursive problems here, but this list is by no means exhaustive.
 
@@ -115,7 +116,8 @@ In this example, finding that GCD(72, 58) = 2 might appear to be in error since 
 ## The Towers of Hanoi
 The Towers of Hanoi is a classic problem or puzzle that appears in many CS textbooks. Given 3 pegs labeled A, B, and C, and a tower of N disks arranged on peg A such that the disks are stacked in descending order of diameter, as shown in the following diagram:
 
-![](pic/Towers_of_Hanoi.png){width="816" height="250"} 
+![](pic/Towers_of_Hanoi.png){width="500"}
+
 The problem is to move all N disks from peg A to another peg (peg C, for example) such that the following rules are always obeyed:
 
 1.Only one disk may be moved at a time.
@@ -156,7 +158,7 @@ def move(n,s,t):
 
 Hanoi(4,"A", "B","C")
 ````
-## Golomb's tromino Problem 
+## Golomb's tromino Problem
 
 A unit square has been removed from a $2^n \times 2^n$ board. Gave an algorithm to tile the rest of the board with L-shaped trominos.
 
@@ -311,7 +313,7 @@ Step 1: Group terms
 
 Using parentheses we can rewrite the left-hand side as:
 
-\[P(k + 1) = (1 + 2 + 3 + ... + k) + (k + 1)\]
+$$P(k + 1) = (1 + 2 + 3 + ... + k) + (k + 1)$$
 
 This does not change the sequence, it merely separates the sequence into the sum of two groups of terms.
 
@@ -331,13 +333,13 @@ Step 4: Use factoring to further simplify the right hand side
 
 In the numerator of the right-hand side we see a common term, (k + 1), so we can further simplify by factoring out this term to give:
 
-\[P(k + 1) = \frac{(k + 1)(k + 2) }{2}\]
+$$P(k + 1) = \frac{(k + 1)(k + 2) }{2}$$
 
 The right-hand side of P(k + 1) now matches the right-hand side from the inductive step.
 
 Conclusion:
 
-P(k + 1) is true. Therefore, P(n) = \frac{n(n + 1)}{2}for all n > 0.
+$P(k + 1)$ is true. Therefore, $P(n) = \frac{n(n + 1)}{2}$for all n > 0.
 
 # Structure of a Recursive Algorithm
 
@@ -359,7 +361,7 @@ def fib(n)
 
 There are 2 base cases for this algorithm, which correspond to the first two Fibonacci numbers, 0 and 1. (Recall that the first two Fibonacci numbers must be pre-defined, since you need to already have at least two numbers in order to compute the next number in the sequence.) Every other case for n > 1 is thus a recursive case. The diagram below shows how the box trace technique might be used to represent the stack frame as the algorithm's execution is manually traced. Keep in mind that the stack frame actually would just look like a single column, as records are pushed onto and popped off the stack. I have expanded the stack frame sideways to better illustrate both the past and current changes to the local variables and return values.
 
-![](pic/box_trace.png){width="918" height="312"}  
+![](pic/box_trace.png){width="600"}
 
 In reality, for this example the stack frame would have at most 3 records, since each recursive call will eventually be replaced by a return value when one recursive call hits a base case. Following each row in the diagram from left to right shows chronologically how each of the 3 records changes as the algorithm progresses. When both recursive calls in the first record have been replaced by literal values, the recursion is over, and the computed value can be returned.
 
