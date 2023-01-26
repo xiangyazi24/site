@@ -1,0 +1,51 @@
+---
+title: "Fliping $\\frac{1}{1-x}$"
+author: "Xiang Huang"
+date: "2023-01-26"
+output:
+  tufte::tufte_html:
+    toc: true
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex   
+link-citations: yes
+urlcolor: blue
+---
+
+I teach Discrete Math every semester. Each time I really want to go deep into generating function, but I can't. So I would tell my students the only generating function you really need to know is this very boring one for $a_n=1$ for  all $n$ $$\frac{1}{1-x}=1+x + x^2 +x^3+\cdots.$$ Today let's have fun playing with it, by, well, just flipping it.
+
+## Odd Partitions and Even Partitions
+
+After flipping $\frac{1}{1-x}$, you will get, obviously,
+$$
+\frac{1}{\frac{1}{1-x}} =1-x.
+$$
+Well that is easy and straightforward. How about the other way to write $\frac{1}{1-x}$? We have
+
+\begin{align}
+1-x=\frac{1}{\frac{1}{1-x}}&= \frac{1}{1+x+ x^2+ x^3\cdots}\\
+&= \frac{1}{1- (-x -x^2 - x^3 -\cdots)}\\
+&= 1+ (-x -x^2 - x^3 -\cdots) + (-x -x^2 - x^3 -\cdots)^2 +(-x -x^2 - x^3 -\cdots)^3\cdots
+\end{align}
+
+
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
