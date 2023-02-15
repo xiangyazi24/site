@@ -8,6 +8,14 @@
  - Part I: Implementation of a Heap-Based Priority Queue.
  - Part II: Represent graphs and implementation and application of Dijkstra Algorithm.
 
+# ChatGPT-Allowed Parts:
+
+ You can use ChatGPT to generate codes for
+
+ - Graph data structure.
+ - Classical Dijkstra algorithm for shortest path. (You need to hack it in this assignment.)
+ - Your Part I: Priority Queue. You need to integrate your own Priority Queue. (No credit if you use a library.)
+
 # Important Note: Submission format
 
 You should submit:
@@ -104,7 +112,7 @@ have reflected those changes below._
 
 8. _Delete(item)_ – deletes the element item form the heap. This can be implemented as a call to _Delete(Position[item])_, which operates in $O(log n)$ time for heaps that have $n$ elements provided Position allows the index of v to be returned in $O(1)$ time.
 
-9. _ChangeKey(item, newValue)_, which changes the key value of element v to _newValue_. To implement this operation in $O(log n)$ time, we first need to be able to identify the position of element $v$ in the array, which we do by using the Position structure. Once we have identified the position of element $v$, we change the key and **then apply _Heapify-up_ or _Heapify-down_ as appropriate.** **You will need to use ChangeKey() method in Part II while implementing Dijkstra Algorithm.**
+9. _ChangeKey(item, newValue)_, which changes the priority value of element v to _newValue_. To implement this operation in $O(log n)$ time, we first need to be able to identify the position of element $v$ in the array, which we do by using the _position_ dictionary(look-up table). Once we have identified the position of element $v$, we change the key and **then apply _Heapify-up_ or _Heapify-down_ as appropriate.** **You will need to use ChangeKey() method in Part II while implementing Dijkstra Algorithm.**
 
 ### Most Common Mistakes and how to avoid them
 
@@ -112,6 +120,7 @@ have reflected those changes below._
 
 2. After _ChangeKey_, forget to heapify, since after modification, the heap property does not hold anymore.
 
+3. Not implementing _position_ lookup table. This is my current strategy to prevent ChatGPT. **You will receive no credit if you just submit a typical mini heap implementation ignoring my requirements.**
 
 ## Submission
 
@@ -188,7 +197,9 @@ have reflected those changes below._
 To maintain the list of previous nodes correctly, we need to make sure that they represent the previous nodes along some shortest path by far. That is, if any shorter distance is found, we need to **clear** the list of previous node totally. The following code piece demonstrates it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-    prev[v] now is a list.
+    prev = new list of lists.  //now is a list of lists.
+    for every v in V:
+    initialize pre[v] ← empty list.
      while Q is not empty:                      // The main loop
          u ← Q.extract_min()                    // Remove and return best vertex
          for each neighbor v of u:              // only v that are still in Q
@@ -208,7 +219,7 @@ To maintain the list of previous nodes correctly, we need to make sure that they
 
 
 ### Important Note
-  Java (or maybe similarly in other language) does not provide a _Changekey_ method for [Priority Queues](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/PriorityQueue.html).
+  Java (or maybe similarly in other language) does not provide a _ChangeKey_ method for [Priority Queues](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/PriorityQueue.html).
   One possible detour is to first _delete_ an item then _insert_ it back with the changed value. However, a normal _delete_ will cost $O(n)$ time, if the current size of the heap is $n$, since heaps are not really well ordered (it doesn't sort its elements). That is why we use mapping/dictionary to speedup the look-up of the position of an item. You can see [this thread](https://stackoverflow.com/questions/6952660/java-priority-queue-reordering-when-editing-elements) on StackOverflow for more discussions.
 
 ## Typical mistakes
