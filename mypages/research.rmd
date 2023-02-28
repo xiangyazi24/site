@@ -1,0 +1,94 @@
+---
+title: "Undergraduate/Graduate Research"
+author: "Xiang Huang"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html: 
+    toc: true
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**"UIS is not known as a research school; it is a research school if do your research there."**
+
+My Ph.D. [advisor](https://jacklutz.com/) told me the above when I was about to start my career here in UIS. I want to use his words to encourage every student/friend who want to do research in whatever circumstances he/she is in.
+
+For those who want to do research with me, I encourage you to read this page carefully to understand the requirements before we schedule a meeting.
+
+## Time Commitment
+
+Short answer: **Two semesters**. Meet weekly. 10-15 hours per/week.
+
+Time is the most valuable resource required in research. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both for you and for me.
+
+I wish I can tell you that you can just work with me for a few weeks or a summer and then can have a shinny publication on your CV. But that is not the case. Not for the research I do. Not for the backgrounds my students usually have.
+
+## Topics
+
+Please find the (incomplete) list of topics on [this page](topics.html).
+
+Generally, there are two types of topics.
+
+-   Original research. The research I do to publish original/new results. It will usually require more effort from both you and me. And I will make sure I decompose meaningful tasks to get you engaged in the research.
+
+-   Study topics. I have broad interests in theoretical computer science and mathematics. Every now and then there are topics that I want to learn. These type of topics can provide very good training for you as a undergraduate student or master student. These type of topics are called Senior Theses or Capstone Project in other institution, see for example [Jim Fix's (Reed College) topics](https://jimfix.github.io/research.html). Although we don't officially have Capstones in UIS, I want to things along that line.
+
+## Writing/Documenting
+
+Once we start working on a project/topic. I hope you can document your work at different stages (as code, report, slides, poster, video, paper). It will be very useful for your future job/school application, and will be important for me to show off your work, too.
+
+Below are a list of useful tools.
+
+1.  [Notion](https://notion.so) for notes taking.
+2.  LaTex for final paper/document.
+  -   Use this template ([TEX](LaTex-template/TEMPLATE.tex)) ([PDF](LaTex-template/TEMPLATE.pdf)) for your final report.
+  -   Visit [this site](https://math.vanderbilt.edu/bohmanar/latex.html) for more information about LaTex.
+  - Use [Overleaf]()
+3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
+4. Jupyter or Google CoLab to write codes.
+
+## Current Student(s) Advising 
+- Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
+- Jared Robbins (2022F to present): Quantum Computing and Mathematical Games.
+
+## Past 
+
+1. Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
+2. Eli Exner (2021F). On normal number and finite automata. 
+3. Charlotte Medina (2021Sp). On Champernowne's constant. 
+4. Joseph Lolis (2021F). On prime boolean matrices
+
+## FAQs:
+  
+1. Can I get paid?
+  <p style="margin-left: 30px">Every person who does his/her work should can get paid. But currently I don't have funding to support that belief. </p>  
+
+2. Can I get a letter from you?
+  <p style="margin-left: 30px">It is my job to write you a letter if you do research with me. It will be hard for me to write a strong one for you if you exit in the middle. I will actually be reluctant in writing you a letter in this circumstance. </p>  
+3. How do I exit the project early?
+  <p style="margin-left: 30px">Just tell me you want to leave. It will save both your time and mine this way. </p> 
+
+4. How do I continue my research with you after a winter break or summer break? 
+  <p style="margin-left: 30px">Just send me a letter to schedule regular meetings for the new semester. **I will not initiate the that conversation.** I tried that before and only to learn that the students had already decided to leave. So I will assume if you don't contact me early in a semester, you're leaving.</p> 
+  
+5. How many students do you mentor/advise every semester? 
+<p style="margin-left: 30px">**Three**. I used to think I can advise every student approaching me. But I've learned my lesson.</p> 
+
+6. Do you want a CV/Cover Letter from me? Do I have to have a high GPA?
+<p style="margin-left: 30px"> I need something that I can learn about you, whatever you believe that can help. Here is a [Twitter post](https://twitter.com/jbhuang0604/status/1627191986091438080?s=12&t=N3lPFCtR3BV7qWGTd_cCUw) that makes some useful suggestion in a funny way.</p> 
+
+7. Do you have any projects in Machine Learning? 
+<p style="margin-left: 30px">No. I don't have any machine learning project currently.</p> 
+
+8. Do I have to take credits from you?
+<p style="margin-left: 30px">I would appreciate it if you register research credits from me. Then I will get pay by a very small amount by UIS. But you don't have to. </p> 

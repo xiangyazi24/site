@@ -1,0 +1,85 @@
+---
+title: "My Research Topics for Students"
+runningheader: "Research topics" # only for pdf output
+subtitle: "An imcomplete list of topics" # only for html output
+author: "Xiang Huang"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html: 
+    toc: true
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+## Original Research Topics
+
+1. On Population Protocols, Chemical Reaction Networks, and analog computing. Something along the line of 
+
+- [LPP Computable Number](https://arxiv.org/abs/2206.06594)
+- [Computing Algebraic Numbers by Generalized Ehrenfest Urns](https://arxiv.org/pdf/1104.5643.pdf)
+- Python programming, scientific computing (Symbolic calculation, ODE solving) and visualization skills come handy.
+
+2. Normal number and continued-fraction normality related topic. 
+
+## Study Topics
+
+The following topics are just topics I am interested in learning more about. Please understand I am not an expert on some of these topics, yet. 
+
+### Quantum Computing Related Topics
+
+1. Algorithmic Randomness and quantum computing.
+
+- [algorithmic randomness + quantum mechanics](https://www.math.ru.nl/~landsman/Jonas2019.pdf)
+    
+- [From Randomness to Quantum Computing](https://www.cs.auckland.ac.nz/~cristian/Compsci750/750_2019.pdf)
+
+2. Quantum Fourier Transformation and Its Application. 
+
+3. Quantum Computing and Simulation. 
+
+
+## Combinatorics Related 
+
+1. [**de Bruijn sequence**](https://en.wikipedia.org/wiki/De_Bruijn_sequence) **and [perfect necklace](https://www.sciencedirect.com/science/article/abs/pii/S0885064X19300354)**
+   This topic requires some work on programming, generating the sequences, graph theory, and automata.
+  
+2. [Symbolic method](https://en.wikipedia.org/wiki/Symbolic_method_(combinatorics)#:~:text=In%20combinatorics%2C%20the%20symbolic%20method,formulas%20for%20their%20generating%20functions) and algorithm analysis. For example, analysis of Hashmap. 
+
+3. Basics of integer partition and q-analog.
+
+## Algorithms and Complexity
+
+1. [Derandomization](https://www2.cs.sfu.ca/~kabanets/papers/chapter.pdf). 
+
+2. [AKS algorithms](https://www.google.com/search?q=AKS+algorithms&oq=AKS+algorithms&aqs=chrome..69i57j0i10i22i30i625j0i390l4.3674j0j7&sourceid=chrome&ie=UTF-8&safe=active&ssui=on)
+
+3. [Fast Integer Multiplication](https://ivv5hpp.uni-muenster.de/u/cl/WS2007-8/mult.pdf)
+
+## Probability Theory and Stochastic Analysis
+
+1. Martingale in the probability theory setting. 
+2. Martingale: multiplicative method. 
+
+## Analog computing 
+1. [A Universal Ordinary Differential Equation.](A Universal Ordinary Differential Equation)
+2. [Polynomial Time Corresponds to Solutions of Polynomial Ordinary Differential Equations of Polynomial Length](https://arxiv.org/abs/1601.05360)
+
+## Programming Projects
+Note that the existence of this category does not say that other projects do not require programming. 
+
+1. martingale (gambling strategies on Cantor Space) visualization. (in Python)
+
+

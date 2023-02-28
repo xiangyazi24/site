@@ -78,7 +78,7 @@ methods:
 
 1. An internal array to store the elements contained in the heap.
 2. An integer attribute to store the size of the heap. The size is equal to the number of elements in the heap, not the size of the array.
-3. A dictionary or map structure to serve as a lookup table so the index of any given element can be found in O(1) time (on average). In the text this attribute is named, Position. **For each entry in the dictionary, the key would be the item, and the value would be the index where the item is stored.** If you use string or integer data for your input, you can use the item itself as the key. The dictionary will be used to implement the *ChangeKey()* method.
+3. A dictionary or map structure to serve as a lookup table so the index of any given element can be found in O(1) time (on average). In the text this attribute is named, Position. **For each entry in the dictionary, the key would be the item, and the value would be the index where the item is stored.**  The dictionary will be used to implement the *ChangePriority()* method.
 
 
 ### <u> Supporting Components </u>
@@ -92,7 +92,7 @@ on. If you place these methods within the heap component itself, you will not ne
 pass the heap to any of these methods. Also, note that method 3 through 9 are described in the
 text on pages 64-65._
 
-_Additionally, the Insert and ChangeKey methods may be altered slightly to allow both a data
+_Additionally, the Insert and ChangePriority methods may be altered slightly to allow both a data
 item and an associated priority value to be passed together. Conceptually, a heap only really
 needs to store single values that can be compared, so as to impose the proper ordering on the
 heap. But to use a heap as a priority queue, where the priority of an item may not always be
@@ -112,13 +112,13 @@ have reflected those changes below._
 
 8. _Delete(item)_ – deletes the element item form the heap. This can be implemented as a call to _Delete(Position[item])_, which operates in $O(log n)$ time for heaps that have $n$ elements provided Position allows the index of v to be returned in $O(1)$ time.
 
-9. _ChangeKey(item, newValue)_, which changes the priority value of element v to _newValue_. To implement this operation in $O(log n)$ time, we first need to be able to identify the position of element $v$ in the array, which we do by using the _position_ dictionary(look-up table). Once we have identified the position of element $v$, we change the key and **then apply _Heapify-up_ or _Heapify-down_ as appropriate.** **You will need to use ChangeKey() method in Part II while implementing Dijkstra Algorithm.**
+9. _ChangePriority(item, newPriority)_, which changes the priority value of element v to _newPriority_. To implement this operation in $O(log n)$ time, we first need to be able to identify the position of element $v$ in the array, which we do by using the _position_ dictionary(look-up table). Once we have identified the position of element $v$, we change the key and **then apply _Heapify-up_ or _Heapify-down_ as appropriate.** **You will need to use ChangePriority() method in Part II while implementing Dijkstra Algorithm.**
 
 ### Most Common Mistakes and how to avoid them
 
 1. In _Heapify_Up(index)_ and _Heapify_Down(index)_, forget to update position accordingly. You will need to update _position_ lookup-table while you move notes up and down.
 
-2. After _ChangeKey_, forget to heapify, since after modification, the heap property does not hold anymore.
+2. After _ChangePriority_, forget to heapify, since after modification, the heap property does not hold anymore.
 
 3. Not implementing _position_ lookup table. This is my current strategy to prevent ChatGPT. **You will receive no credit if you just submit a typical mini heap implementation ignoring my requirements.**
 
@@ -219,7 +219,7 @@ To maintain the list of previous nodes correctly, we need to make sure that they
 
 
 ### Important Note
-  Java (or maybe similarly in other language) does not provide a _ChangeKey_ method for [Priority Queues](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/PriorityQueue.html).
+  Java (or maybe similarly in other language) does not provide a _ChangePriority_ method for [Priority Queues](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/PriorityQueue.html).
   One possible detour is to first _delete_ an item then _insert_ it back with the changed value. However, a normal _delete_ will cost $O(n)$ time, if the current size of the heap is $n$, since heaps are not really well ordered (it doesn't sort its elements). That is why we use mapping/dictionary to speedup the look-up of the position of an item. You can see [this thread](https://stackoverflow.com/questions/6952660/java-priority-queue-reordering-when-editing-elements) on StackOverflow for more discussions.
 
 ## Typical mistakes
