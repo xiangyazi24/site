@@ -13,6 +13,8 @@ output:
 link-citations: yes
 ---
 
+
+
 I teach Discrete Math every semester. Each time I really want to go deep into generating function, but I can't. So I would tell my students the only generating function you really need to know is this very boring one for $a_n=1$ for  all $n$ $$\frac{1}{1-x}=1+x + x^2 +x^3+\cdots.$$ Today let's have fun playing with it, by, well, just flipping it.
 
 ## Odd Compositions and Even Compositions
@@ -55,3 +57,5 @@ For $n>=1$.So for $n-1>=1$, i.e., $n>=2$, we have the number of even composition
 ## Further Reading
 
 Composition is not to be confused with partition (order does not matter), which is a more interesting subject. The even partition and the odd partition has a more [complicated relation](https://math.stackexchange.com/questions/92191/identity-involving-partitions-of-even-and-odd-parts). Partition is a fascinating subject in combinations and number theory. I will read/write more about it, just for fun.
+
+

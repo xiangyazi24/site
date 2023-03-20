@@ -1,38 +1,120 @@
 <meta charset="utf-8">
 
               **CSC 482: Algorithms and Computation**
-                 **Almost Shortest Path**
+                 **Lab: Weighted Job Scheduling Problem**
 
 # Purpose
 
- - Part I: Implementation of a Heap-Based Priority Queue.
- - Part II: Represent graphs and implementation and application of Dijkstra Algorithm.
+ - Dynamic Programming.
+ - Application of Sorting in Algorithm Design.
 
-# ChatGPT-Allowed Parts:
+# Problem Statement
 
- You can use ChatGPT to generate codes for
+The Lab is excerpted from Section 12.3 of [Algorithm Design and Applications](https://canvas.projekti.info/ebooks/Algorithm%20Design%20and%20Applications%5BA4%5D.pdf) by Michael T. Goodrich and Roberto Tamassia. We also talked about weighted job scheduling in Kleinberg and Tardos. I will not repeat most of the contents in the books. I will just emphasis what I believe are the important aspects of the problem.
 
- - Graph data structure.
- - Classical Dijkstra algorithm for shortest path. (You need to hack it in this assignment.)
- - Your Part I: Priority Queue. You need to integrate your own Priority Queue. (No credit if you use a library.)
+- **Input:** A list of jobs $L$. A job $i$ is specified by a triple: ($s_i$, $f_i$, $b_i$) meaning the starting time, finishing time, and the benefit of performing the job $i$.
+- **Output:** A selected subset of the jobs, so that
+    - No jobs in the subset are conflict with each other.
+    - The sum of the benefits are maximized.
 
-# Important Note: Submission format
+In the first book about, the problem is introduced via a vivid language and is called "telescope scheduling problem". Below is an example taking out of the book.
 
-You should submit:
+![Figure [The telescope scheduling problem.]: The telescope scheduling problem. The left and right boundary of each rectangle represent the start and finish times for an observation request. The height of each rectangle represents its benefit. We list each request's benefit on the left and its predecessor on the right. The requests are listed by increasing finish times. The optimal solution has total benefit 17 = 5+ 5+ 2+ 5.](example.png)
 
-       1. A .zip file that contains everything.( Skip this if your project contains only one file.)
-       2. Each **individual** source file separately. Note that I can only make annotation on Canvas if you submit source files this way.
-       3. Source code on Beecrowd. (For Beecrowd project.)
-       4. Snapshot of passing all the tests. (For Beecrowd project. )
-       5. Other required materials mentioned in the homework statement.
+# Solution of The Problem
 
-Each semester I will have students **only** a .zip file for the whole project. Please note that you also need to submit individual source files, unzipped.
-This is to make sure I can make annotations on your source files on Canvas. I cannot annotate .zip files.
+## Dynamic Programming and Memoization
 
-By submitting **only** the project .zip file, I interpret that you agree to:
+As we discussed in the lecture, we need the following notion.
 
- 1. Not receive comments/annotations while I review your code.
- 2. Accept points off (5%) for not following the submission format.
+We first assume $L$ is ordered by nondecreasing **finish times**.
+
+\[
+    B_i = \text{the maximum benefit that can be achieved with the first $i$ request in $L$.}
+\]
+So, as a boundary condition, we get $B_0=0$.
+
+We also define the predecessor, $pred(i)$, for each job $i$, to be the largest index $j$, such that $j$<$i$ and job $i$ and $j$ don't conflict.  If there is no such index, then define the predecessor of to be 0 (use -1 if index starting from 0).
+
+The definition of the predecessor of each job lets us easily reason about the effect that including or not including a job, $i$, in a schedule that includes the first $i$ jobs in $L$. That is, in a schedule that achieves the optimal value, $B_i$, for $i>1$, either it includes the job $i$ or it doesn't; hence, we can reason as follows:
+
+- If the optimal schedule achieving the benefit $B_i$ includes job $i$, then $B_i= B_{pred(i)} + b_i$. If this were not the case, then we could get a better benefit by substituting the schedule achieving $B_{pred(i)}$ for the one we used from among those with indices at most $pred(i)$.
+- On the other hand, if the optimal schedule achieving the benefit does not include job $i$ , then $B_{i-1}$. If this were not the case, then we could get a better benefit by using the schedule that achieves $B_{i-1}$.
+
+Therefore, we can make the following recursive definition:
+
+
+\[
+  B_i  = \max\bigg\{B_{i-1}, B_{pred(i)}+ b_i\bigg\}
+\]
+
+It is most efficient for us to use memoization when computing $B_i$. We use the arrays $B$ and $P$, and $B[i]$ and $P[i]$ for $B_i$ and $pred[i]$ respectively in the following code.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~c linenumbers
+B[0]=0
+for i=1  to n do:
+    B[i]=max{B[i-1], B[P[i]]+ b_i}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We can see this algorithm runs in $O(n)$, where $n$ is the length of $L$. The bottleneck of the algorithm lies in the sorting of $L$, which costs $O(n\log(n))$. However, we still haven't discuss how to compute $P[i]$ or $pred(i)$.
+
+## How to Compute $pred(i)$
+
+### Naive Linear Search
+If you do a Google search, you will easily find solutions using naive way to solve the problem.
+
+For example, [this one](https://www.geeksforgeeks.org/weighted-job-scheduling/)'s Python implementation
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~python linenumbers
+# Find the latest job (in sorted array) that
+# doesn't conflict with the job[i]. If there
+# is no compatible job, then it returns -1
+def latestNonConflict(arr, i):
+
+    for j in range(i - 1, -1, -1):
+        if arr[j].finish <= arr[i - 1].start:
+            return j
+
+    return -1
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+does a linear search for each job $i$, and you need to do it for every $i$. So the complexity of calculating $P[]$ in this way is $O(n^2)$.
+
+### Binary Search
+
+You can improve the above process by using binary search. See [this link](https://www.geeksforgeeks.org/weighted-job-scheduling-log-n-time/) for the full solution. Basically, since the jobs already sorted by finish time, you just need to binary search for the first job so that its **finish** time is earlier than the target job's **start** time.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~python linenumbers
+# A Binary Search based function to find the latest job
+# (before current job) that doesn't conflict with current
+# job.  "index" is index of the current job.  This function
+# returns -1 if all jobs before index conflict with it.
+# The array jobs[] is sorted in increasing order of finish
+# time.
+def binarySearch(job, start_index):
+
+    # Initialize 'lo' and 'hi' for Binary Search
+    lo = 0
+    hi = start_index - 1
+
+    # Perform binary Search iteratively
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if job[mid].finish <= job[start_index].start:
+            if job[mid + 1].finish <= job[start_index].start:
+                lo = mid + 1
+            else:
+                return mid
+        else:
+            hi = mid - 1
+    return -1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This method takes $O(\log(n))$ time to compute $pred(i)$ for each $i$. So in total it costs $O(n\log(n))$ time.
+
+### $O(n)$ Algorithm Once and For All
+
+
 
 # Part I: Priority Queue data structure.
 

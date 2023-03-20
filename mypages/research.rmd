@@ -57,11 +57,11 @@ Below are a list of useful tools.
 3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
 4. Jupyter or Google CoLab to write codes.
 
-## Current Student(s) Advising 
+## Current Student(s) Advising
 - Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
 - Jared Robbins (2022F to present): Quantum Computing and Mathematical Games.
 
-## Past 
+## Past
 
 1. Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
 2. Eli Exner (2021F). On normal number and finite automata. 
@@ -91,4 +91,6 @@ Below are a list of useful tools.
 <p style="margin-left: 30px">No. I don't have any machine learning project currently.</p> 
 
 8. Do I have to take credits from you?
-<p style="margin-left: 30px">I would appreciate it if you register research credits from me. Then I will get pay by a very small amount by UIS. But you don't have to. </p> 
+<p style="margin-left: 30px">I would appreciate it if you register research credits from me. Then I will get pay by a very small amount by UIS    . But you don't have to. </p>
+
+

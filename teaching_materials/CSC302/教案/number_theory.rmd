@@ -1,0 +1,111 @@
+---
+title: "Number Theory"
+author: "Xiang Huang"
+date: "2023-03-08"
+output: html_document
+---
+
+My summary in teaching number theory chapter.
+
+- \# of lectures: 2.
+
+Since there are only two lectures, covering things all the way from very basic number theory to RSA algorithm is challenging. 
+
+# Arrangement
+
+## Lecture 1.
+
+1. Divisibility. 
+- Dividable notation.
+- Remainder form ($n=qd +r$).
+
+Having introduce divisibility we can introduce the following notions.
+
+- Prime number.
+- Modular arithmetic. Introduce the notation $a\equiv b\mod{m}$, by saying something has the same remainder.
+- and GCD
+
+2. Prime number and fundamental theorem of arithmetic.
+3. Modular arithmetic. One can do the following operations as in the normal algebra
+  - addition
+  - multiplication
+  - the above two implies subtraction (multiply by -1 and then add).
+  - substitution. ($ax\equiv bx \mod m$, and $x\equiv c \mod m$, then one can replace $x$ by $c$).
+  - but not cancellation. Example ($2\equiv 8 \mod 6$, but $1\not \equiv 4 \mod 6$).
+
+Then we discuss under what condition we can do cancellation, basically, when the thing we try to cancel and the modulo are co-prime. To understand why this is true, we need to know GCD algorithm.
+
+4. GCD algorithm.
+- The recursive form.
+- Some examples.
+- Basic analysis. Each two rounds, the number shrink by half. 
+
+5. Extended GCD algorithm and inverse. 
+- talk about the result, but not the algorithm itself. That is there are $s,t$ so that $sa+ tb =(a,b)$. 
+- especially when $(a,b)=1$. 
+- introduce inverse of a number, using example such as $5^{-1}=2\mod 3$.
+- multiply the inverse so we can do cancellation. 
+
+6. Proof of Fermat's little theorem and Euler's theorem.
+
+Apply the above cancellation, we can prove Fermat's little theorem and even Euler's theorem. But we typically don't have time for Euler's theorem, because that require Euler's quotient function.
+
+
+## Lecture 2
+### Review EGCD and inverse.
+Review extended GCD algorithm and the existence of inverse when two number are co-prime.
+### Euler's Totient function.
+1. $f(p)$
+2. $f(p^2)$
+3. $f(p^k)$
+4. $f(n)= f(p\times q)$, where $p,q$ are both prime, then generate it to the co-prime case.
+5. $f(n)$. Use the unique factorization of $n$ and the previous result. 
+
+### Computing Large Exponent by Repeated Squaring Algorithm.
+The recursive function. Emphasize on the wishful thing: if someone tell us the half exponent is done. Argue that this algorithm runs fast.  
+
+- $\log(e)$, where $e$ is the exponent.
+- The number that we need to multiply is no more than $\log m$ bits.
+
+### Public-Key Cryptosystem
+Introduce the basic idea about cryptosystem. Let $M$ be a message, $E$ be a encryption function, and $D$ be a decryption function. The following properties are desired.
+
+1. $D(E(M))=M$.
+2. Both $E$ and $D$ are easy to compute.
+3. It is computationally infeasible to derive $D$ from $E$.
+4. $E(D(M))=M$.
+
+The fourth property is for **digital signature**.
+
+The above content is taken from Chapter 24 of *Algorithm Design and Application* by Goodrich and Tamassia.
+
+### RSA Algorithm
+Then we introduce RSA algorithm.
+
+1. Select two large primes, $p$ and $q$.
+2. Let $n=pq$ and hence $\phi(n)=(p-1)(q-1)$. 
+3. Encryption and decryption keys $e$ and $d$ are selected so that 
+- $e$ and $\phi(n)$ are relatively prime.
+- $ed\equiv 1 \mod \phi(n)$
+
+Then to encrypt we do
+\[ C \leftarrow M^e \mod n.\]
+
+To decrypt we do 
+
+\[
+M\leftarrow C^d \mod n.
+\]
+
+Don't forget to talk about 
+
+- The message (a string) can be viewed as a large number.
+- Longer message can be chopped into pieces so the large number has a fixed size. 
+- Then talk about how the previous topics are helpful here. Fast algorithm to compute large exponent of a number and extended GCD to find the inverse of a number.
+
+Then we can talk about the correctness of the algorithm. 
+
+Note that $ed\equiv 1 \mod \phi(n)$ the modulo is $\phi(n)$, but in the encryption and decryption, the modulo is $n$. I previously has wrong idea about that.
+
+Question: how to find $e$, a number coprime with $\phi(n)$?
+
