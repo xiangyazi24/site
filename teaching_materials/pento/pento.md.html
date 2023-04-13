@@ -118,6 +118,8 @@ Again, to avoid trivial solutions, you may want to restrict orientations of some
 
 ## Generate all legal positions
 
+**Please follow the instruction for reduction here. Each time a student does not follow the instruction, often it is the case that he/she tries to copy codes directly from other sources.**
+
 With the above encoding, you should be able to generate all the legal positions to place a shape. Say you want to do it for $3\times 20$ configuration, you can do
 
   - Place the origin (in the above, I use top left grid INSIDE a shape as origin) of your shape in each of the position in the $3\times 20$ configuration.
@@ -126,6 +128,7 @@ With the above encoding, you should be able to generate all the legal positions 
   - Collect all the grids that the shape occupies, to form a set.
 
 More details about how to generate the legal positions can be found in [this email response](legal-pos.png).
+
 You might find a linear encoding of the configuration (say $3\times 20$) is more convenient, instead of talking about a two dimension configuration, you turn the coordinate of a grid into $\{0, 1, \cdots, 59\}$.
 
 # Reduce from Pentomino puzzle to Exact Set Cover Problem
@@ -136,7 +139,7 @@ After you generate all the legal positions to place a shape, you should be able 
 After this step, you will get a gigantic table of sets!
 
 
-You will need to **write a report to describe how you want to do the reduction and argue why it should work**.
+You will need to **write in the  report to describe how you want to do the reduction and argue why it should work**.
 
 Reading materials:
 
