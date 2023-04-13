@@ -66,6 +66,7 @@ Below are a list of useful tools.
 - Eli Exner (2021F). On normal number and finite automata. 
 - Joseph Lolis (2021F). On prime boolean matrices
 - Charlotte Medina (2021Sp). On Champernowne's constant. 
+
 ## FAQs:
   
 1. Can I get paid?
