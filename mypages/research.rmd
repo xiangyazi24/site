@@ -29,7 +29,7 @@ For those who want to do research with me, I encourage you to read this page car
 
 Short answer: **Two semesters**. Meet weekly. 10-15 hours per/week.
 
-Time is the most valuable resource required in research. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both for you and for me.
+Time is the most valuable resource required in research. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you can take CSC 499: Tutorial to earn credits as an elective. 
 
 I wish I can tell you that you can just work with me for a few weeks or a summer and then can have a shinny publication on your CV. But that is not the case. Not for the research I do. Not for the backgrounds my students usually have.
 
@@ -52,22 +52,20 @@ Below are a list of useful tools.
 1.  [Notion](https://notion.so) for notes taking.
 2.  LaTex for final paper/document.
   -   Use this template ([TEX](LaTex-template/TEMPLATE.tex)) ([PDF](LaTex-template/TEMPLATE.pdf)) for your final report.
-  -   Visit [this site](https://math.vanderbilt.edu/bohmanar/latex.html) for more information about LaTex.
+  -   Visit [this site](https://math.vanderbilt.edu/bohmanar/latex.html) or [Chicago Math REU site](http://math.uchicago.edu/~may/REU2022/) for more information about LaTex and the format of final report I expect from you.
   - Use [Overleaf]()
 3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
 4. Jupyter or Google CoLab to write codes.
 
 ## Current Student(s) Advising
 - Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
-- Jared Robbins (2022F to present): Quantum Computing and Mathematical Games.
 
 ## Past
-
-1. Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
-2. Eli Exner (2021F). On normal number and finite automata. 
-3. Charlotte Medina (2021Sp). On Champernowne's constant. 
-4. Joseph Lolis (2021F). On prime boolean matrices
-
+- Jared Robbins (2022F to 2023Sp): Quantum Computing and Mathematical Games.
+- Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
+- Eli Exner (2021F). On normal number and finite automata. 
+- Joseph Lolis (2021F). On prime boolean matrices
+- Charlotte Medina (2021Sp). On Champernowne's constant. 
 ## FAQs:
   
 1. Can I get paid?
@@ -79,7 +77,7 @@ Below are a list of useful tools.
   <p style="margin-left: 30px">Just tell me you want to leave. It will save both your time and mine this way. </p> 
 
 4. How do I continue my research with you after a winter break or summer break? 
-  <p style="margin-left: 30px">Just send me a letter to schedule regular meetings for the new semester. **I will not initiate the that conversation.** I tried that before and only to learn that the students had already decided to leave. So I will assume if you don't contact me early in a semester, you're leaving.</p> 
+  <p style="margin-left: 30px">Just send me a letter to schedule regular meetings for the new semester. **I will not initiate that conversation.** I tried that before and only to learn that the students had already decided to leave. So I will assume if you don't contact me early in a semester, you're leaving.</p>
   
 5. How many students do you mentor/advise every semester? 
 <p style="margin-left: 30px">**Three**. I used to think I can advise every student approaching me. But I've learned my lesson.</p> 
@@ -88,9 +86,9 @@ Below are a list of useful tools.
 <p style="margin-left: 30px"> I need something that I can learn about you, whatever you believe that can help. Here is a [Twitter post](https://twitter.com/jbhuang0604/status/1627191986091438080?s=12&t=N3lPFCtR3BV7qWGTd_cCUw) that makes some useful suggestion in a funny way.</p> 
 
 7. Do you have any projects in Machine Learning? 
-<p style="margin-left: 30px">No. I don't have any machine learning project currently.</p> 
+<p style="margin-left: 30px">No. I don't have any machine learning project currently. But that does not mean I won't have one in the future.</p>
 
 8. Do I have to take credits from you?
-<p style="margin-left: 30px">I would appreciate it if you register research credits from me. Then I will get pay by a very small amount by UIS    . But you don't have to. </p>
+<p style="margin-left: 30px">I would recommend you to register CSC 499: Tutorial. That is a way that you can earn credits while doing research with me. More importantly, it buy you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
 
 
