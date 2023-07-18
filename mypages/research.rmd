@@ -29,7 +29,7 @@ For those who want to do research with me, I encourage you to read this page car
 
 Short answer: **Two semesters**. Meet weekly. 10-15 hours per/week.
 
-Time is the most valuable resource required in research, after perhaps interest. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you are asked CSC 499: Tutorial to earn credits as an elective. 
+Time is the most valuable resource required in research, after perhaps interest. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you are asked to take CSC 499: Tutorial to earn credits as an elective. 
 
 I wish I can tell you that you can just work with me for a few weeks or a summer and then can have a shinny publication on your CV. But that is not the case. Not for the research I do. Not for the backgrounds my students usually have.
 
@@ -60,9 +60,11 @@ Below are a list of useful tools.
 
 ## Current Student(s) Advising
 - Jonathan Miller (2023 Sm to present). Large Integer Multiplication Algorithms.
-- Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
+
 
 ## Past
+- Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
+His project “Concurrent B-Link-Trees and Its Applications in Database Systems: A Revisit”, won the best research product in the technology category in UIS Student Technology, Arts, & Research Symposium (STARS) 2023.
 - Jared Robbins (2022F to 2023Sp): Quantum Computing and Mathematical Games.
 - Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
 - Eli Exner (2021F). On normal number and finite automata. 
