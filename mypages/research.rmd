@@ -29,7 +29,7 @@ For those who want to do research with me, I encourage you to read this page car
 
 Short answer: **Two semesters**. Meet weekly. 10-15 hours per/week.
 
-Time is the most valuable resource required in research, after perhaps interest. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you can take CSC 499: Tutorial to earn credits as an elective. 
+Time is the most valuable resource required in research, after perhaps interest. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you are asked CSC 499: Tutorial to earn credits as an elective. 
 
 I wish I can tell you that you can just work with me for a few weeks or a summer and then can have a shinny publication on your CV. But that is not the case. Not for the research I do. Not for the backgrounds my students usually have.
 
@@ -53,12 +53,13 @@ Below are a list of useful tools.
 2.  LaTex for final paper/document.
   -   Use this template ([TEX](LaTex-template/TEMPLATE.tex)) ([PDF](LaTex-template/TEMPLATE.pdf)) for your final report.
   -   Visit [this site](https://math.vanderbilt.edu/bohmanar/latex.html) or [Chicago Math REU site](http://math.uchicago.edu/~may/REU2022/) for more information about LaTex and the format of final report I expect from you.
-  - Use [Overleaf]()
+  - Use [Overleaf](https://www.overleaf.com/) or any LaTex editor you like. 
 3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
 4. Jupyter or Google CoLab to write codes.
+5. Use [GitHub](https://github.com/) and constantly commit to your repo to record things. 
 
 ## Current Student(s) Advising
-- Jonathan Miller (2023 Sm to present). Integer Multiplication.
+- Jonathan Miller (2023 Sm to present). Large Integer Multiplication Algorithms.
 - Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
 
 ## Past
@@ -92,6 +93,6 @@ Below are a list of useful tools.
 <p style="margin-left: 30px">No. I don't have any machine learning project currently. But that does not mean I won't have one in the future.</p>
 
 8. Do I have to take credits from you?
-<p style="margin-left: 30px">I would recommend you to register CSC 499: Tutorial. That is a way that you can earn credits while doing research with me. More importantly, it buy you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
+<p style="margin-left: 30px">I would require that you take CSC 499: Tutorial. (Some students can also do IPL (Internship) with me.) That is a way that you can earn credits while doing research with me. More importantly, it buy you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
 
 
