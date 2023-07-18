@@ -51,7 +51,7 @@ The following topics are just topics I am interested in learning more about. Ple
 3. Quantum Computing and Simulation. 
 
 
-## Combinatorics Related 
+## Combinatorics Related
 
 1. [**de Bruijn sequence**](https://en.wikipedia.org/wiki/De_Bruijn_sequence) **and [perfect necklace](https://www.sciencedirect.com/science/article/abs/pii/S0885064X19300354)**
    This topic requires some work on programming, generating the sequences, graph theory, and automata.
@@ -59,6 +59,10 @@ The following topics are just topics I am interested in learning more about. Ple
 2. [Symbolic method](https://en.wikipedia.org/wiki/Symbolic_method_(combinatorics)#:~:text=In%20combinatorics%2C%20the%20symbolic%20method,formulas%20for%20their%20generating%20functions) and algorithm analysis. For example, analysis of Hashmap. 
 
 3. Basics of integer partition and q-analog.
+
+4. Basics of p-adic numbers and its applications.
+
+5. [Manim](https://github.com/3b1b/manim) Visualization of some of the above topics.
 
 ## Algorithms and Complexity
 
@@ -73,9 +77,10 @@ The following topics are just topics I am interested in learning more about. Ple
 1. Martingale in the probability theory setting. 
 2. Martingale: multiplicative method. 
 
-## Analog computing 
+## Analog computing
 1. [A Universal Ordinary Differential Equation.](A Universal Ordinary Differential Equation)
 2. [Polynomial Time Corresponds to Solutions of Polynomial Ordinary Differential Equations of Polynomial Length](https://arxiv.org/abs/1601.05360)
+3. Recursive functions and [Discrete ODEs](https://arxiv.org/abs/2209.12168)
 
 ## Programming Projects
 Note that the existence of this category does not say that other projects do not require programming. 
