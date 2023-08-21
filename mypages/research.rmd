@@ -41,19 +41,19 @@ Generally, there are two types of topics.
 
 -   Original research. The research I do to publish original/new results. It will usually require more effort from both you and me. And I will make sure I decompose meaningful tasks to get you engaged in the research.
 
--   Study topics. I have broad interests in theoretical computer science and mathematics. Every now and then there are topics that I want to learn. These type of topics can provide very good training for you as a undergraduate student or master student. These type of topics are called Senior Theses or Capstone Project in other institution, see for example [Jim Fix's (Reed College) topics](https://jimfix.github.io/research.html). Although we don't officially have Capstones in UIS, I want to do things along that line.
+-   Study topics. I have broad interests in theoretical computer science and mathematics. Every now and then there are topics that I want to *learn*. These type of topics can provide very good training for you as a undergraduate student or master student. These type of topics are called Senior Theses or Capstone Project in other institution, see for example [Jim Fix's (Reed College) topics](https://jimfix.github.io/research.html). Although we don't officially have Capstones in UIS, I want to do things along that line.
 
 ## Writing/Documenting
 
-Once we start working on a project/topic. I hope you can document your work at different stages (as code, report, slides, poster, video, paper). It will be very useful for your future job/school application, and will be important for me to show off your work, too.
+Once we start working on a project/topic. I hope you can document your work at different stages (as code, report, slides, poster, video, paper). It will be very useful for your future job/graduate school application, and will be important for me to show off your work, too.
 
-Below are a list of useful tools.
+Below is a list of useful tools.
 
 1.  [Notion](https://notion.so) for notes taking.
 2.  LaTex for final paper/document.
   -   Use this template ([TEX](LaTex-template/TEMPLATE.tex)) ([PDF](LaTex-template/TEMPLATE.pdf)) for your final report.
   -   Visit [this site](https://math.vanderbilt.edu/bohmanar/latex.html) or [Chicago Math REU site](http://math.uchicago.edu/~may/REU2022/) for more information about LaTex and the format of final report I expect from you.
-  - Use [Overleaf](https://www.overleaf.com/) or any LaTex editor you like. 
+  - Use [Overleaf](https://www.overleaf.com/) or any LaTex editor you like. I personally use [Sublime Text](https://www.sublimetext.com/) + [LaTextools plugin](https://latextools.readthedocs.io/en/latest/).  
 3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
 4. Jupyter or Google CoLab to write codes.
 5. Use [GitHub](https://github.com/) and constantly commit to your repo to record things. 
@@ -63,18 +63,18 @@ Below are a list of useful tools.
 
 
 ## Past
-- Anish Sinha (2022Sp, 2022Sm, to present). Chemical Reaction Network / Population Protocols simulation. 
+- Anish Sinha (2022Sp, 2022Sm, to 2023Sp). Chemical Reaction Network / Population Protocols simulation. 
 His project “Concurrent B-Link-Trees and Its Applications in Database Systems: A Revisit”, won the best research product in the technology category in UIS Student Technology, Arts, & Research Symposium (STARS) 2023.
 - Jared Robbins (2022F to 2023Sp): Quantum Computing and Mathematical Games.
 - Rachel Huls (2021Sm, 2021F, and 2022Sp). On large population protocol computable numbers. [Paper](https://arxiv.org/abs/2206.06594) published in DNA 28. 
 - Eli Exner (2021F). On normal number and finite automata. 
-- Joseph Lolis (2021F). On prime boolean matrices
+- Joseph Lolis (2021F). On prime boolean matrices.
 - Charlotte Medina (2021Sp). On Champernowne's constant. 
 
 ## FAQs:
   
 1. Can I get paid?
-  <p style="margin-left: 30px">Every person who does his/her work should can get paid. But currently I don't have funding to support that belief. 
+  <p style="margin-left: 30px">Every person who does his/her work should get paid. ~~But currently I don't have funding to support that belief.~~ (Now I have a [grant](https://www.uis.edu/news/two-uis-faculty-members-awarded-prestigious-doe-sc-grant-innovative-research-scientific) for the Chemical Reaction Networks related topics.)
   </p>  
 
 2. Can I get a letter from you?
@@ -96,5 +96,8 @@ His project “Concurrent B-Link-Trees and Its Applications in Database Systems:
 
 8. Do I have to take credits from you?
 <p style="margin-left: 30px">I would require that you take CSC 499: Tutorial. (Some students can also do IPL (Internship) with me.) That is a way that you can earn credits while doing research with me. More importantly, it buy you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
+
+9. I am an online student, can I do research with you?
+<p style="margin-left: 30px">Of Course. Some of my best students are online student. You should definitely try if you are interested in working with me.</p>
 
 
