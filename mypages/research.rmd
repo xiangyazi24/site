@@ -27,7 +27,7 @@ For those who want to do research with me, I encourage you to read this page car
 
 ## Time Commitment
 
-Short answer: **Two semesters**. Meet weekly. 10-15 hours per/week.
+Short answer: **Two semesters**. Meet weekly. 10-15 hours per week.
 
 Time is the most valuable resource required in research, after perhaps interest. In general, I expect you to work **at least two semesters** with me. Please understand that time commitment applies both to you and to me. To "buy" you more time to do research, you are asked to take CSC 499: Tutorial to earn credits as an elective. 
 
@@ -45,7 +45,7 @@ Generally, there are two types of topics.
 
 ## Writing/Documenting
 
-Once we start working on a project/topic. I hope you can document your work at different stages (as code, report, slides, poster, video, paper). It will be very useful for your future job/graduate school application, and will be important for me to show off your work, too.
+Once we start working on a project/topic. I hope you can document your work at different stages (as code, report, slides, poster, video, paper). It will be very useful for your future job/graduate school application, and will be important for me to show off your work, too. **You will need to write a formal report using the LaTex template ( Chicago Math REU template) provided below.** Read the samples there to get an idea what the report should look like.
 
 Below is a list of useful tools.
 
@@ -95,7 +95,7 @@ His project “Concurrent B-Link-Trees and Its Applications in Database Systems:
 <p style="margin-left: 30px">No. I don't have any machine learning project currently. But that does not mean I won't have one in the future.</p>
 
 8. Do I have to take credits from you?
-<p style="margin-left: 30px">I would require that you take CSC 499: Tutorial. (Some students can also do IPL (Internship) with me.) That is a way that you can earn credits while doing research with me. More importantly, it buy you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
+<p style="margin-left: 30px">I would require that you take CSC 499: Tutorial. (Some students can also do IPL (Internship) with me.) That is a way that you can earn credits while doing research with me. More importantly, it buys you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
 
 9. I am an online student, can I do research with you?
 <p style="margin-left: 30px">Of Course. Some of my best students are online student. You should definitely try if you are interested in working with me.</p>
