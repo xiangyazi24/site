@@ -129,6 +129,18 @@ With the above encoding, you should be able to generate all the legal positions 
 
 More details about how to generate the legal positions can be found in [this email response](legal-pos.png).
 
+As stated in the above response, we need to write a giant loop,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~python
+for shape in shapes:
+        for orient in shap:
+            for i in range(rows):
+                for j in range(cols):
+                  # (set the origin at (i,j))
+                  # calculate each of the five grids's position (x, y)
+                  # check if x, y falls in the right range.
+                  # if any of the grid is not in a legal position, the placement it not legal.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 You might find a linear encoding of the configuration (say $3\times 20$) is more convenient, instead of talking about a two dimension configuration, you turn the coordinate of a grid into $\{0, 1, \cdots, 59\}$.
 
 # Reduce from Pentomino puzzle to Exact Set Cover Problem
