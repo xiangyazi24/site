@@ -13,8 +13,8 @@
  You can use ChatGPT to generate codes for
 
  - Graph data structure.
- - Classical Dijkstra algorithm for shortest path. (You need to hack it in this assignment.)
- - Your Part I: Priority Queue. You need to integrate your own Priority Queue. (No credit if you use a library.)
+ - Classical Dijkstra algorithm for shortest path. (**You need to hack it in this assignment.**)
+ - In Part I: Priority Queue, you can generate a code base for the Priority queue. And then you have to write original codes for meet the requirements stated below. In Part II, you need to integrate your Priority Queue into the algorithm implementation. (**No credit if you don't use your Part I. No credit if you don't use Priority Queue.**)
 
 # Important Note: Submission format
 
@@ -22,9 +22,8 @@ You should submit:
 
        1. A .zip file that contains everything.( Skip this if your project contains only one file.)
        2. Each **individual** source file separately. Note that I can only make annotation on Canvas if you submit source files this way.
-       3. Source code on Beecrowd. (For Beecrowd project.)
-       4. Snapshot of passing all the tests. (For Beecrowd project. )
-       5. Other required materials mentioned in the homework statement.
+       3. Snapshot of passing all the tests. (For Beecrowd project. )
+       4. Report.
 
 Each semester I will have students **only** a .zip file for the whole project. Please note that you also need to submit individual source files, unzipped.
 This is to make sure I can make annotations on your source files on Canvas. I cannot annotate .zip files.
@@ -32,7 +31,7 @@ This is to make sure I can make annotations on your source files on Canvas. I ca
 By submitting **only** the project .zip file, I interpret that you agree to:
 
  1. Not receive comments/annotations while I review your code.
- 2. Accept points off (5%) for not following the submission format.
+ 2. Accept points off (10%) for not following the submission format.
 
 # Part I: Priority Queue data structure.
 
@@ -116,11 +115,11 @@ have reflected those changes below._
 
 ### Most Common Mistakes and how to avoid them
 
-1. In _Heapify_Up(index)_ and _Heapify_Down(index)_, forget to update position accordingly. You will need to update _position_ lookup-table while you move notes up and down.
+1. In _Heapify_Up(index)_ and _Heapify_Down(index)_, forget to update position accordingly. You will need to update _position_ lookup-table while you move notes up and down. **It is ugly to update the positions in both of the above methods. You can write a swap() function where you swap two nodes and also update the position mapping.**
 
 2. After _ChangePriority_, forget to heapify, since after modification, the heap property does not hold anymore.
 
-3. Not implementing _position_ lookup table. This is my current strategy to prevent ChatGPT. **You will receive no credit if you just submit a typical mini heap implementation ignoring my requirements.**
+3. Not implementing _position_ lookup table. **You will receive no credit if you just submit a typical mini heap implementation ignoring my requirements.**
 
 ## Submission
 
@@ -128,34 +127,32 @@ have reflected those changes below._
 
        1. A .zip file that contains everything.( Skip this if your project contains only one file.)
        2. Each **individual** source file separately. **Note that I can only make annotation on Canvas if you submit source files this way.
-
-  Points (5%) will be deducted if you fail to follow the submission format.
+       3. Your report on Part I.
+  Points (10%) will be deducted if you fail to follow the submission format.
 
 
 
 # Part II: Almost Shortest Path
 ## Problem Statement:
-   Please read [Almost shortest Path](this|.) problem statement on [beecrowd](https://www.beecrowd.com.br/judge/en/login).
+   Please read [Almost shortest Path](https://www.beecrowd.com.br/repository/UOJ_1391_en.html) problem statement on [beecrowd](https://www.beecrowd.com.br/judge/en/login).
 
-   Additional instruction on how to find the course page on beecrowd will be posted on a separate thread.
-
-   I personally like this problem very much, since to solve this problem, you do not just implement a classic algorithm, Dijkstra Algorithm, you **adapt** it. You need to adapt it according to the problem, to achieve your goal.
+   I personally like this problem very much, since to solve this problem, you do not just implement a classic algorithm, Dijkstra Algorithm, you **adapt** it. You need to adapt it according to the problem, to achieve your goal. Being able to adapt a classic algorithm deepens your understanding of the algorithm.
 
    You might also need to implement **Depth/Breadth Search algorithm (BFS/DFS)** in this task.
 
 ## A rough framework to solve Almost Shortest Path problem
- - You will need to first run one round of an adapted Dijkstra Algorithm to find *ALL* the edges that lie on any shortest path.
+ - You will need to first run one round of an adapted Dijkstra Algorithm to find **ALL** the edges that lie on any shortest path.
  - Delete all those edges by **BFS/DFS algorithm**.
  - Run another round of Dijkstra Algorithm.
 
 ### How to find all the critical edges
-  In the standard Dijkstra Algorithm, every node maintain a link to its **previous** node or **parent** node. Hence by following these links we get store **a single path**. But things need to change slightly here.
+  We say an edge is critical if it lies on a shortest path. In the standard Dijkstra Algorithm, every node maintain a link to its **previous** node or **parent** node. Hence by following these links we get store **a single path**. But things need to change slightly here.
 
   - We need to find **all** paths, not just one.
   - So we need to store all the previous **nodes** that can induce a shortest distance. We will need a **list** of previous nodes, instead of just one previous node.
   - Then when we trace back to generate paths, we need a DFS/BFS algorithm to find all the shortest path, from sink to source (yes, we do in reversibly).
 
-  I will leave it to you figuring out how to maintain the previous nodes. A hint: in the below pseudocode, Line #20, we only update shortest distance when we find an alternative shorter path. What if the alternative path is equal in length with the current shortest distance, i.e., *alt = dist[v]*, what should you do?
+  I will leave it to you figuring out how to maintain the previous nodes. A hint: in the below pseudocode, Line #20, we only update shortest distance when we find an alternative shorter path. What if the alternative path is **equal in length** with the current shortest distance, i.e., *alt = dist[v]*, what should you do?
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Java linenumbers
 /*** This is a standard implementation of Dijkstra algorithm, you need to adapt it to make it work for our purpose.
@@ -194,9 +191,11 @@ have reflected those changes below._
 To maintain the list of previous nodes correctly, we need to make sure that they represent the previous nodes along some shortest path by far. That is, if any shorter distance is found, we need to **clear** the list of previous node totally. The following code piece demonstrates it.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~java
-    prev = new list of lists.  //now is a list of lists.
+//now is a list of lists. prev[v]= "a list of the previous nodes in a shortest path."
+//Since there can be many shortest paths, so there can be multiple previous nodes.
+    prev = new array of lists.
     for every v in V:
-    initialize pre[v] ← empty list.
+    initialize prev[v] ← empty list.
      while Q is not empty:                      // The main loop
          u ← Q.extract_min()                    // Remove and return best vertex
          for each neighbor v of u:              // only v that are still in Q
@@ -205,16 +204,15 @@ To maintain the list of previous nodes correctly, we need to make sure that they
                  dist[v] ← alt
                  prev[v].clear               // we need to clear the list of previous nodes
                  prev[v].add(u)
-                 Q.decrease_priority(v, alt)  // equally good, shortest distance
-             if alt = dist[v]
-                 dist[v] ← alt
+                 Q.changePriority(v, alt)    //change the priority to the new distance.
+             if alt == dist[v]   // equally good, shortest distance
                  prev[v].append(u)          // no need to clear, just append;
                                             // no need to update priority
      return dist, prev
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We will then use the information store in `prev` in a BFS algorithm to remove all the critical edges.
+The `prev` is actually a subgraph of our input graph consists of all the criticle edges and all the edges in this subgraph are pointing backward.
+We then use a BFS algorithm to remove all the critical edges. The start the BFS process from the **target** node.
 
 ### Avoid Search the Whole Graph Again for the Critical Edges
 
@@ -251,12 +249,12 @@ where line 9 `if (DP1[cur] == DP1[i] + dist[i][cur])` is the logic to detect whe
     1. Use a loop to do classic Dijkstra algorithm to find shortest paths, update the graph after delete a single shortest path, until the shortest distance to destination changes. Several drawbacks of this approach:
        - Efficiency: need to do multiple rounds Dijkstra algorithms, it can be very bad in an adversary graph.
        - The order of deleting paths matters.
-    2. Delete nodes along a path, instead of edges. This is due to misunderstanding what we mean by almost shortest path.
+    2. Delete **nodes** along a path, instead of edges. This is due to misunderstanding what we mean by almost shortest path.
     3. Write **two** Dijkstra algorithm for the two rounds search. The code are more or less the same. Don't write two different version for the two round! Whenever you identify a lot of redundancy in your code, you know you need to reuse something!
 ## Testing
   1. You might want to test you Priority Queue before you integrate it in your almost shortest path solution. Before that, it is a not a bad idea to use a Priority Queue library in your language of choice to write your almost shortest path solution, if you want to attempt that first.But you have to switch back to your own version in your final submission.
   2. You can find all the test cases on UDEBUG. I will also provide the test cases I extracted from there.
-  3. You might want to do you testing on your IDE. And then paste all things in one file to pass the URI tests. Note that Beecrowd only do standard I/O, so instead of read in from a file, you might want to read inputs from standard input (System.in in Java) and output to standard output (System.out in Java).
+  3. You might want to do you testing on your IDE. And then paste all things in one file to pass the Beecrowd tests. Note that Beecrowd only do standard I/O, so instead of read in from a file, you might want to read inputs from standard input (System.in in Java) and output to standard output (System.out in Java).
 
  ## Submission
 
@@ -265,6 +263,7 @@ where line 9 `if (DP1[cur] == DP1[i] + dist[i][cur])` is the logic to detect whe
      - A snapshot of Beecrowd on passing **all** tests.
      - A .zip that contain all files and resources.
      - All source files, separately as single files, on Canvas.
+     - A Report.
 
 Each semester I will have students only a .zip file for the whole project. Please note that you also need to submit individual source files, unzipped.
 This is to make sure I can make annotations on your source files on Canvas. I cannot annotate .zip files.
@@ -274,7 +273,7 @@ By submitting **only** the project .zip file, I interpret that you agree to:
 
  1. Not receive comments/annotations while I review your code.
 
- 2. Accept points off (5%) for not following the submission format.
+ 2. Accept points off (10%) for not following the submission format.
 
  ## Grading
 
