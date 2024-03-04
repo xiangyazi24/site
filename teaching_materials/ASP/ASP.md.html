@@ -249,8 +249,13 @@ where line 9 `if (DP1[cur] == DP1[i] + dist[i][cur])` is the logic to detect whe
     1. Use a loop to do classic Dijkstra algorithm to find shortest paths, update the graph after delete a single shortest path, until the shortest distance to destination changes. Several drawbacks of this approach:
        - Efficiency: need to do multiple rounds Dijkstra algorithms, it can be very bad in an adversary graph.
        - The order of deleting paths matters.
+       - The algorithm is actually wrong for some graphs! I don't have the graph example here to show it though.
     2. Delete **nodes** along a path, instead of edges. This is due to misunderstanding what we mean by almost shortest path.
     3. Write **two** Dijkstra algorithm for the two rounds search. The code are more or less the same. Don't write two different version for the two round! Whenever you identify a lot of redundancy in your code, you know you need to reuse something!
+    4. When you submit on BeeCrowd, you might need to make some adjustment of your code.
+       - Delete `package` statement.
+       - Delete `Public` modifier for your class that is not Main.
+       - Of course, you want to delete all testing `println()`.
 ## Testing
   1. You might want to test you Priority Queue before you integrate it in your almost shortest path solution. Before that, it is a not a bad idea to use a Priority Queue library in your language of choice to write your almost shortest path solution, if you want to attempt that first.But you have to switch back to your own version in your final submission.
   2. You can find all the test cases on UDEBUG. I will also provide the test cases I extracted from there.
@@ -288,8 +293,7 @@ By submitting **only** the project .zip file, I interpret that you agree to:
 
    - Please understand the correctness of your code will be tested while your Part II is complete. （You will need to use your Priority Queue in the implementation of Part II.）
    - I make Part I as a separate assignment only because I want you to finish the project on schedule. The submission serves as a **check point**.
-   - The total points for Part I is 50. You will receive 20%, or 10 points if you make a **successful** submission by the deadline, by which I mean your project should be in a complete status. Submitting empty file or insufficiently developed initial work does not count.
-
+   - The total points for Part I and Part II is 50.
 
 
 
