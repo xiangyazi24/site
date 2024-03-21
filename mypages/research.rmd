@@ -57,12 +57,13 @@ Below is a list of useful tools.
 3.  I also use [R-Markdown](https://rmarkdown.rstudio.com/) to create webpages and notes.
 4. Jupyter or Google CoLab to write codes.
 5. Use [GitHub](https://github.com/) and constantly commit to your repo to record things. 
+6. Use [Mathcha](https://www.mathcha.io/) to draw pictures in Latex/Tikz. 
 
 ## Current Student(s) Advising
-- Jonathan Miller (2023 Sm to present). Large Integer Multiplication Algorithms.
-
+(None. It could be you.)
 
 ## Past
+- Jonathan Miller (2023Sm to 2023F). Large Integer Multiplication Algorithms [GitHub Repo](https://github.com/xiangyazi24/Integer_Mul_REU).
 - Anish Sinha (2022Sp, 2022Sm, to 2023Sp). Chemical Reaction Network / Population Protocols simulation. 
 His project “Concurrent B-Link-Trees and Its Applications in Database Systems: A Revisit”, won the best research product in the technology category in UIS Student Technology, Arts, & Research Symposium (STARS) 2023.
 - Jared Robbins (2022F to 2023Sp): Quantum Computing and Mathematical Games.
@@ -74,7 +75,7 @@ His project “Concurrent B-Link-Trees and Its Applications in Database Systems:
 ## FAQs:
   
 1. Can I get paid?
-  <p style="margin-left: 30px">Every person who does his/her work should get paid. ~~But currently I don't have funding to support that belief.~~ (Now I have a [grant](https://www.uis.edu/news/two-uis-faculty-members-awarded-prestigious-doe-sc-grant-innovative-research-scientific) for the Chemical Reaction Networks related topics.)
+  <p style="margin-left: 30px">Every person who does his/her work should get paid. ~~But currently I don't have funding to support that belief.~~ (Now I have a [grant](https://www.uis.edu/news/two-uis-faculty-members-awarded-prestigious-doe-sc-grant-innovative-research-scientific) for the Chemical Reaction Networks related topics and I can pay you.)
   </p>  
 
 2. Can I get a letter from you?
@@ -98,6 +99,6 @@ His project “Concurrent B-Link-Trees and Its Applications in Database Systems:
 <p style="margin-left: 30px">I would require that you take CSC 499: Tutorial. (Some students can also do IPL (Internship) with me.) That is a way that you can earn credits while doing research with me. More importantly, it buys you some time. You can take it as an elective and it counts towards graduation (at least for undergraduates; for grads, I might need to offer it as CSC 599.).  You typically have to have my approval to be able to register the course.</p>
 
 9. I am an online student, can I do research with you?
-<p style="margin-left: 30px">Of Course. Some of my best students are online student. You should definitely try if you are interested in working with me.</p>
+<p style="margin-left: 30px">Of Course. Some of my best students are online students. You should definitely try if you are interested in working with me.</p>
 
 
