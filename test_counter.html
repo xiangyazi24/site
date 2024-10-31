@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitor Counter Test</title>
+    <title>Visitor Counter Test with JavaScript</title>
 </head>
 <body>
-    <h2>Testing EasyCounter Visitor Counter</h2>
+    <h2>Testing EasyCounter Visitor Counter with JavaScript</h2>
     <p>Unique visitors since June 2022:</p>
-    <a href="https://www.easycounter.com/">
-        <img src="https://www.easycounter.com/counter.php?xiangyazi24"
-        border="0" alt="HTML Counter">
-    </a>
-    <br>
-    <a href="https://www.easycounter.com/">Hit Counters</a>
+    <div id="counter"></div>
+
+    <script>
+        async function loadCounter() {
+            const username = 'xiangyazi24'; // Replace with your actual username
+            try {
+                const response = await fetch(`https://www.easycounter.com/php.counter.php?username=${encodeURIComponent(username)}`, {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+
+                if (response.ok) {
+                    const text = await response.text();
+                    document.getElementById('counter').innerHTML = text;
+                } else {
+                    // Fallback in case of an error
+                    document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
+                }
+            } catch (error) {
+                console.error('Error loading counter:', error);
+                document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
+            }
+        }
+
+        loadCounter();
+    </script>
 </body>
 </html>

@@ -343,28 +343,28 @@ If you are a UIS student, online or on campus, with interests in the above topic
 
 					</div><!-- .entry-content -->
 
-    <h2>Testing EasyCounter Visitor Counter with PHP</h2>
+   <h2>Testing EasyCounter Visitor Counter with JavaScript</h2>
     <p>Unique visitors since June 2022:</p>
+    <div id="counter"></div>
 
-    <?php
-    // Easy Counter code begins
+    <script>
+        async function loadCounter() {
+            try {
+                const response = await fetch('counter_proxy.php'); // Fetch from your PHP proxy
+                if (response.ok) {
+                    const text = await response.text();
+                    document.getElementById('counter').innerHTML = text;
+                } else {
+                    document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
+                }
+            } catch (error) {
+                console.error('Error loading counter:', error);
+                document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
+            }
+        }
 
-    $ec_username = 'xiangyazi24'; // <--- your username
-
-    if (!$ec_fsock = fsockopen('ssl://www.easycounter.com', 443, $errno, $errstr, 2)) {
-        echo '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
-    } else {
-        fputs($ec_fsock, "GET /php.counter.php?username=".urlencode($ec_username)." HTTP/1.0\r\n".
-        "Host: www.easycounter.com\r\n\r\n");
-        $ec_buffer = '';
-        while (!feof($ec_fsock)) $ec_buffer .= fgets($ec_fsock, 1024);
-        echo substr($ec_buffer, strpos($ec_buffer, "\n\r\n")+3);
-        fclose($ec_fsock);
-    }
-
-    // Easy Counter code ends
-    ?>
-</body>
+        loadCounter();
+    </script>
 
 
 <footer class="entry-meta">
