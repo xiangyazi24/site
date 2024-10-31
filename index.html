@@ -344,28 +344,12 @@ If you are a UIS student, online or on campus, with interests in the above topic
 
 </div><!-- .entry-content -->
 
-    <h2>Testing EasyCounter Visitor Counter with JavaScript</h2>
-    <p>Unique visitors since June 2022:</p>
-    <div id="counter"></div>
-
-    <script>
-        async function loadCounter() {
-            try {
-                const response = await fetch('counter_proxy.php'); // Fetch from your PHP proxy
-                if (response.ok) {
-                    const text = await response.text();
-                    document.getElementById('counter').innerHTML = text;
-                } else {
-                    document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
-                }
-            } catch (error) {
-                console.error('Error loading counter:', error);
-                document.getElementById('counter').innerHTML = '<img src="https://www.easycounter.com/images/error.png" alt="Error loading counter">';
-            }
-        }
-
-        loadCounter();
-    </script>
+    <h2>Testing EasyCounter Visitor Counter</h2>
+    <a href="https://www.easycounter.com/">
+        <img src="https://www.easycounter.com/counter.php?xiangyazi24" border="0" alt="HTML Counter">
+    </a>
+    <br>
+    <a href="https://www.easycounter.com/">Hit Counters</a>
 <footer class="entry-meta">
 					</footer><!-- .entry-meta -->
 	</article><!-- #post -->							
