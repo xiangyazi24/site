@@ -345,8 +345,42 @@ If you are a UIS student, online or on campus, with interests in the above topic
 
 <font size="4" face="Arial">Unique visitors since June 2022:</font>
 <br>
-<img src="https://www.easycounter.com/counter.php?xiangyazi24" border="0" alt="Visitor Counter">
+<div id="counter-container">
+    <!-- Counter will be inserted here by JavaScript -->
+</div>
 <br>
+
+<script>
+function loadCounterImage() {
+    const counterUrl = "https://www.easycounter.com/counter.php?xiangyazi24";
+    const container = document.getElementById('counter-container');
+
+    // Create new image element
+    const img = new Image();
+    img.border = "0";
+    img.alt = "Visitor Counter";
+
+    // Set up loading handlers
+    img.onload = function() {
+        container.innerHTML = ''; // Clear any previous content
+        container.appendChild(img);
+    };
+
+    img.onerror = function() {
+        console.log("Failed to load counter image, retrying...");
+        // Retry loading after a short delay
+        setTimeout(loadCounterImage, 1000);
+    };
+
+    // Set source to trigger loading
+    img.src = counterUrl;
+}
+
+// Load the counter when the page loads
+document.addEventListener('DOMContentLoaded', loadCounterImage);
+</script>
+
+
 		<footer class="entry-meta">
 					</footer><!-- .entry-meta -->
 	</article><!-- #post -->							
