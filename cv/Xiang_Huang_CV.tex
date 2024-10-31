@@ -235,193 +235,146 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{calc}
+\usepackage{comment}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[UTF8]{ctex} % for Chinese support
+\usepackage{etaremune} % reverse enumberate
+\graphicspath{ {images/}}
+
+% [Previous package imports and styling commands remain the same until the document begins]
+% ... [keeping all the previous setup code unchanged]
+
 \begin{document}
 \makeheading{\Large{Huang, Xiang} \hfill University of Illinois Springfield}
 
 \section{Contact Information}
 
-% NOTE: Mind where the & separators and \\ breaks are in the following
-%       table.
-%
-% ALSO: \rcollength is the width of the right column of the table
-%       (adjust it to your liking; default is 1.85in).
-%
-\newlength{\rcollength}\setlength{\rcollength}{1.4in}%
-%
 \begin{center}
 \begin{tabular}{l l}
- Department of Computer Science & \hspace{1in} \href{mailto:xhuan5@uis.edu}{xhuan5@uis.edu} \\
-   3115 UHB, One University Plaza &  \hspace{1in} Phone: +1 (217) 206-8336 \\
-  Springfield, IL 62703-5407, USA        &
+ Department of Computer Science & \href{mailto:xhuan5@uis.edu}{xhuan5@uis.edu} \\
+ 3115 UHB, One University Plaza & Phone: +1 (217) 206-8336 \\
+ Springfield, IL 62703-5407, USA &
 \end{tabular}
 \end{center}
-%\section{Objective}
 
-%Insert text here if you want to
-%\begin{innerlist}
-%\item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
-%\end{innerlist}
 \section{Current Position}
-Assistant Professor, University of Illinois Springfield, Springfield, IL, US. (August, 2020  to present)
+Assistant Professor, University of Illinois Springfield, Springfield, IL, USA (August 2020 to present).
 
 \section{Personal Website}
 \href{https://www.xianghuang.org}{\textbf{xianghuang.org}}
 
 \section{Research Interests}
-
 Algorithmic Information Theory, Analog Computing, Molecular Programming, and Theoretical Foundations.
 
-\section{Visiting Position:}
-Visiting Assistant Professor, Le Moyne College, Syracuse, NY, US. (Sept, 2019  to June, 2019 )
+\section{Visiting Positions}
+Visiting Associate, California Institute of Technology (August 2024 -- December 2024, hosted by \href{https://www.dna.caltech.edu/~winfree/}{Erik Winfree}). \\
+Visiting Assistant Professor, Le Moyne College, Syracuse, NY (September 2019 -- June 2020).
 
 \section{Education}
 
-\href{http://www.iastate.edu/}{\textbf{Iowa State University}},
-IA, US.
+\href{http://www.iastate.edu/}{\textbf{Iowa State University}}, IA, USA
 \begin{outerlist}
-
-\item[]  {Ph.D. in Computer Science, 2020},
+\item[] {Ph.D. in Computer Science, 2020.}
         \begin{innerlist}
-        \item Thesis: \emph{Chemical Reaction Networks: Computability, Complexity, and Randomness}
-        \item Advisor:
-              \href{http://jacklutz.com}
-                   {Professor Jack H. Lutz}
+        \item Thesis: \emph{Chemical Reaction Networks: Computability, Complexity, and Randomness}.
+        \item Advisor: \href{http://jacklutz.com}{Professor Jack H. Lutz}.
         \end{innerlist}
 \end{outerlist}
-\href{http://english.is.cas.cn/}{\textbf{Institute of Software, Chinese Academy of Sciences,}}  Beijing, China.
+
+\href{http://english.is.cas.cn/}{\textbf{Institute of Software, Chinese Academy of Sciences}}, Beijing, China
 \begin{outerlist}
-\item[]  {Computer Science},
-             2009.09 - 2012.06.
+\item[] {Computer Science, September 2009 -- June 2012.}
         \begin{innerlist}
-        \item Topic: \emph{Model Checking, Formal Methods, Automata Theory}
+        \item Topic: \emph{Model Checking, Formal Methods, Automata Theory}.
         \end{innerlist}
 \end{outerlist}
-\vspace{.1in}
-\href{http://www.nju.edu.cn}{\textbf{Nanjing University, }} Nanjing, China.
+
+\href{http://www.nju.edu.cn}{\textbf{Nanjing University}}, Nanjing, China
 \begin{outerlist}
-\item[]{B.E. in Software Engineering} , 2005.09 - 2009.06.
+\item[]{B.E. in Software Engineering, September 2005 -- June 2009}.
 \end{outerlist}
 
-\section{Grant Supports}
-
+\section{Grant Support}
+\vspace{5mm}
 External Support:
 \begin{etaremune}
-   \item Principal investigator: \textit{Towards A Hierarchy of Real Numbers Computable by CRN}, \$400K, Department of Energy EXPRESS grant, 2023-2025.
+   \item Principal investigator: \textit{Towards A Hierarchy of Real Numbers Computable by CRN}, \$400,000, Department of Energy EXPRESS grant, 2023--2025.
 \end{etaremune}
-U of I Springfield  or U of I System internal supports:
+
+U of I Springfield or U of I System Internal Support:
 \begin{etaremune}
     \item National Taiwan University‐University of Illinois System Travel Grants Program, \$5,000, 2024.
-    \item Competitive Scholarly Research Grant, \$5,000, 2023-2024.
-    \item Grant Writing Mentorship Award, \$1,500, 2022-2023.
+    \item Competitive Scholarly Research Grant, \$5,000, 2023--2024.
+    \item Grant Writing Mentorship Award, \$1,500, 2022--2023.
     \item Leadership Lived Experience (LLE) student employment initiative, \$4,000, 2022.
 \end{etaremune}
-\section{Journal Publications}
 
+\section{Journal Publications}
 \begin{etaremune}
-    \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull, Asymptotic divergences and strong dichotomy, IEEE Transactions on Information Theory 67 (2021), pp. 6296-6305.
-    \item Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li and Jack H. Lutz: Real-Time Computability of Real Numbers by Chemical Reaction Networks. \textit{Volume 18, Issue 1, pp 63-73, Natural Computing (2019).  \textbf{(invited paper).}}
+    \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull, ``Asymptotic divergences and strong dichotomy,'' \textit{IEEE Transactions on Information Theory} 67 (2021), pp. 6296--6305.
+    \item Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li and Jack H. Lutz, ``Real-Time Computability of Real Numbers by Chemical Reaction Networks,'' \textit{Natural Computing} 18(1) (2019), pp. 63--73 \textbf{(invited paper)}.
 \end{etaremune}
-%\section{Journal Submissions Under Review}
-%\begin{itemize}
-%\item Xiang Huang, Titus H. Klinge, James I. Lathrop. Equivalence of Real-Time Computable Numbers in Analog Models. Submitted.
-%\item Xiang Huang, Jack H. Lutz, and Andrei N. Migunov. Algorithmic Randomness in Continuous-Time Markov Chains. Submitted.
-%\end{itemize}
 
 \section{Conference Publications}
 \begin{etaremune}
-  \item Xiang Huang and Rachel Huls. Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria. The 28th International Conference on DNA Computing and Molecular Programming (DNA 28, Albuquerque, NM, Aug 8-12, 2022).
-  \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull. Asymptotic divergences and strong dichotomy, Proceedings of the Thirty-seventh Symposium on Theoretical Aspects of Computer Science (STACS 2020, Montpellier, France, March 10-13, 2020).
-  \item Xiang Huang, Jack H. Lutz, and Andrei N. Migunov. Algorithmic Randomness in Continuous-Time Markov Chains, 2019. In Proceedings of the 57th Annual Allerton Conference on Communication, Control, and Computing.
-  \item Xiang Huang, Titus H. Klinge, James I. Lathrop. Real-Time Equivalence of Chemical Reaction Networks and Analog Computers. In: Thachuk C., Liu Y. (eds) DNA Computing and Molecular Programming. DNA 2019. Lecture Notes in Computer Science, vol 11648. Springer, Cham.
-  \item Xiang Huang, Titus H. Klinge, James I. Lathrop,  Xiaoyuan Li and Jack H. Lutz. Real-Time Computability of Real Numbers by Chemical Reaction Networks. \textit{In Proceedings of the 16th International Conference on Unconventional Computation and Natural Computation (UCNC)} , June 2017, pp. 29-40.
-  \item Xiang Huang and Donald.~M. Stull.  Polynomial Space Randomness in Analysis.  \textit{In Proceedings of the 41st International Symposium on Mathematical Foundations of Computer Science (MFCS)} , August 2016:86:1-86:13.
+  \item Xiang Huang and Rachel Huls, ``Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria,'' \textit{The 28th International Conference on DNA Computing and Molecular Programming} (DNA 28, Albuquerque, NM, August 8--12, 2022).
+  \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull, ``Asymptotic divergences and strong dichotomy,'' \textit{Proceedings of the Thirty-seventh Symposium on Theoretical Aspects of Computer Science} (STACS 2020, Montpellier, France, March 10--13, 2020).
+  \item Xiang Huang, Jack H. Lutz, and Andrei N. Migunov, ``Algorithmic Randomness in Continuous-Time Markov Chains,'' \textit{Proceedings of the 57th Annual Allerton Conference on Communication, Control, and Computing} (2019).
+  \item Xiang Huang, Titus H. Klinge, James I. Lathrop, ``Real-Time Equivalence of Chemical Reaction Networks and Analog Computers,'' \textit{DNA Computing and Molecular Programming} (DNA 2019), Lecture Notes in Computer Science, vol. 11648, Springer, Cham.
+  \item Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li and Jack H. Lutz, ``Real-Time Computability of Real Numbers by Chemical Reaction Networks,'' \textit{Proceedings of the 16th International Conference on Unconventional Computation and Natural Computation} (UCNC 2017), pp. 29--40.
+  \item Xiang Huang and Donald M. Stull, ``Polynomial Space Randomness in Analysis,'' \textit{Proceedings of the 41st International Symposium on Mathematical Foundations of Computer Science} (MFCS 2016), 86:1--86:13.
 \end{etaremune}
+
 \section{Peer-Reviewed Workshop Paper/Extended Abstract}
 \begin{etaremune}
-  \item Xiang Huang and Andrei N. Migunov. A General Purpose Analog Computer to Population Protocol Compiler. The 3rd 3rd Annual Compiler Frontiers Workshop, May 9, 2024.
+  \item Xiang Huang and Andrei N. Migunov, ``A General Purpose Analog Computer to Population Protocol Compiler,'' \textit{The 3rd Annual Compiler Frontiers Workshop}, May 9, 2024.
 \end{etaremune}
+
 \section{Awards}
 \begin{etaremune}
-  \item The International Society for Nanoscale Science, Computation and Engineering
-(ISNSCE) \href{https://isnsce.org/awards/the-dna-student-awards/}{Best Student Presentation Award}, at 25th International Conference on DNA Computing and
-Molecular Programming (DNA25), August, 2019.
-  \item Teaching Excellence Award, 2017, Iowa State University.
+  \item The International Society for Nanoscale Science, Computation and Engineering (ISNSCE) \href{https://isnsce.org/awards/the-dna-student-awards/}{Best Student Presentation Award}, at 25th International Conference on DNA Computing and Molecular Programming (DNA25), August 2019.
+  \item Teaching Excellence Award, Iowa State University, 2017.
 \end{etaremune}
 
-%Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald Stull. Asymptotic Divergences and Strong Dichotomy, 2019. (under review) \\
-%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%
-% The reference section has links to your references' websites and email addresses.
-
 \section{Invited Talks}
-\textit{Computing Real Numbers with Large-Population Protocols}, Drake University,  Oct 27, 2023.\\
-\textit{Some Thoughts on Normality, Algorithmic Randomness, and Analog Computing}, the Fifth Nanjing University Youth Forum, May, 2020. (Remote)
+\textit{Computing Real Numbers with Large-Population Protocols}, Drake University, October 2023. \\
+\textit{Some Thoughts on Normality, Algorithmic Randomness, and Analog Computing}, The Fifth Nanjing University Youth Forum, May 2020 (Remote).
 
 \section{Contributed Talks}
-\textit{Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria.}, DNA 28, August, 2022.\\
-\textit{Real-Time Equivalence of Chemical Reaction Networks and Analog Computers}, DNA 25, August, 2019.\\
-\textit{Asymptotic Divergences and Strong Dichotomy}, Iowa Colloquium on Information, Complexity, and Logic (ICICL), Spring 2019.\\
-\textit{Some Thoughts on Normality, Algorithmic Randomness, and Analog Computing}, Swarthmore College, Swarthmore, PA, March 2019. \\
-\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}, the 19th Graduate Student Conference in Logic, Madison, WI, April 2018 \\
-\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}, UCNC 2017.\\
+\textit{Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria}, DNA 28, August 2022. \\
+\textit{Real-Time Equivalence of Chemical Reaction Networks and Analog Computers}, DNA 25, August 2019. \\
+\textit{Asymptotic Divergences and Strong Dichotomy}, Iowa Colloquium on Information, Complexity, and Logic (ICICL), Spring 2019. \\
+%\textit{Some Thoughts on Normality, Algorithmic Randomness, and Analog Computing}, Swarthmore College, March 2019. \\
+\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}, The 19th Graduate Student Conference in Logic, Madison, WI, April 2018. \\
+\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}, UCNC 2017.
 
 \section{Teaching Experience}
 
 \textbf{At UIS}
 \begin{itemize}
-  \item[] CSC 570F - Graduate Algorithms and Applications \hfill {Spring 2023}
-  \item[] CSC 302 - Discrete Structures \hfill {Fall 2020 to present}
-  \item[] CSC 482 - Algorithms and Theorey of Computation \hfill {Fall 2020 to present}
+  \item[] CSC 570F -- Graduate Algorithms and Applications \hfill {Spring 2023}
+  \item[] CSC 302 -- Discrete Structures \hfill {Fall 2020 to present}
+  \item[] CSC 482 -- Algorithms and Theory of Computation \hfill {Fall 2020 to present}
 \end{itemize}
-\textbf{As instructor at Le Moyne College}
 
+\textbf{As Instructor at Le Moyne College}
 \begin{itemize}
-\item[] CSC 175 - Introduction to Algorithms and Program Design.\hfill {Fall 2019}
-\item[] CSC 170 - Java Introduction (no prior programming experience) \hfill {Spring 2020}
-\item[] CSC 176 - Java Introduction (as a second programming course)  \hfill {Spring 2020}
-\item[] CSC 276 - Object Oriented Design Using Java \hfill{Spring 2020}
+\item[] CSC 175 -- Introduction to Algorithms and Program Design \hfill {Fall 2019}
+\item[] CSC 170 -- Java Introduction (no prior programming experience) \hfill {Spring 2020}
+\item[] CSC 176 -- Java Introduction (as a second programming course) \hfill {Spring 2020}
+\item[] CSC 276 -- Object Oriented Design Using Java \hfill {Spring 2020}
 \end{itemize}
-\textbf{As teaching Assistant at Iowa State}
+
+\textbf{As Teaching Assistant at Iowa State}
 \begin{itemize}
-\item[] COM S 531 - Theory of Computation (Grad)\hfill {Spring 2014 and 2016}
-\item[] COM S 511 - Algorithm Design and Analysis (Grad)\hfill {Fall 2014, 2015, and 2017}
-\item[] COM S 331 - Theory of Computation \hfill {Fall 2016 and Spring 2019}
-\item[] COM S 311 - Algorithm Design \hfill {Summer 2015, 2016, and Fall 2018 }
-\item[] COM S 330 - Discrete Mathematical Structures \hfill {Spring 2014}
-\item[] COM S 252 - Introduction to Operating Systems\hfill {Fall 2013}
+\item[] COM S 531 -- Theory of Computation (Graduate) \hfill {Spring 2014, 2016}
+\item[] COM S 511 -- Algorithm Design and Analysis (Graduate) \hfill {Fall 2014, 2015, 2017}
+\item[] COM S 331 -- Theory of Computation \hfill {Fall 2016, Spring 2019}
+\item[] COM S 311 -- Algorithm Design \hfill {Summer 2015, 2016, Fall 2018}
+\item[] COM S 330 -- Discrete Mathematical Structures \hfill {Spring 2014}
+\item[] COM S 252 -- Introduction to Operating Systems \hfill {Fall 2013}
 \end{itemize}
-%\vspace{4mm}
-%\begin{tabular}{@{} l }
-%   \href{https://www.cs.iastate.edu/people/simanta-mitra}{Simanta Mitra }(for teaching) \\
-%   Senior Lecturer \\
-% Department of Computer Science\\
-% Iowa State University\\
-% \small{\href{mailto: smitra@iastate.edu}{smitra@iastate.edu}}
-%\end{tabular}
 
 \end{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------%
-% The following is copyright and licensing information for
-% redistribution of this LaTeX source code; it also includes a liability
-% statement. If this source code is not being redistributed to others,
-% it may be omitted. It has no effect on the function of the above code.
-%----------------------------------------------------------------------%
-% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
-%
-% Unless otherwise expressly stated, this work is licensed under the
-% Creative Commons Attribution-Noncommercial 3.0 United States License. To
-% view a copy of this license, visit
-% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
-% Creative Commons, 171 Second Street, Suite 300, San Francisco,
-% California, 94105, USA.
-%
-% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-%----------------------------------------------------------------------%
