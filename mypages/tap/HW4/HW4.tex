@@ -1,0 +1,162 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+\newcommand\solution{\vspace{.10in}\textbf{Solution: }}
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+%%% end of theorem styles
+%\DeclareMathOperator{\gcd}{gcd}
+%%%===========algorithm
+%% algorithm
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{etoolbox}
+
+\makeatletter
+% start with some helper code
+% This is the vertical rule that is inserted
+\newcommand*{\algrule}[1][\algorithmicindent]{%
+  \makebox[#1][l]{%
+    \hspace*{.2em}% <------------- This is where the rule starts from
+    \vrule height .75\baselineskip depth .25\baselineskip
+  }
+}
+
+\newcount\ALG@printindent@tempcnta
+\def\ALG@printindent{%
+    \ifnum \theALG@nested>0% is there anything to print
+    \ifx\ALG@text\ALG@x@notext% is this an end group without any text?
+    % do nothing
+    \else
+    \unskip
+    % draw a rule for each indent level
+    \ALG@printindent@tempcnta=1
+    \loop
+    \algrule[\csname ALG@ind@\the\ALG@printindent@tempcnta\endcsname]%
+    \advance \ALG@printindent@tempcnta 1
+    \ifnum \ALG@printindent@tempcnta<\numexpr\theALG@nested+1\relax
+    \repeat
+    \fi
+    \fi
+}
+% the following line injects our new indent handling code in place of the default spacing
+\patchcmd{\ALG@doentity}{\noindent\hskip\ALG@tlm}{\ALG@printindent}{}{\errmessage{failed to patch}}
+\patchcmd{\ALG@doentity}{\item[]\nointerlineskip}{}{}{} % no spurious vertical space
+% end vertical rule patch for algorithmicx
+\makeatother
+%%% ==========end of algorithm
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{UISid}}     % your UIS id
+\newcommand\HWNUM{4}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+
+
+You should read Chapter 1-6 of \textit{A Friendly Introduction to Number Theory} to make sure you are familiar with the basic definitions before you start working on this assignment.
+
+\question{1}{GCD, (10 pts)}
+In the lecture I did not give a complete proof of the following fact:
+\[
+     Let n= qm +r, \ \text{where } 0\leq r\leq m-1, \ \text{then} \gcd(n,m)=\gcd(m,r)
+\]
+\question{2}{Extended Euclidean GCD Algorithm (10 pts)}
+Please do some research online to find an implemention the Euclidean Algorithm. For each pair $(n,m)$ of the following numbers, apply your algorithm to calculate $\gcd(n,m)$.
+
+You will also need to submit your source code on Canvas.
+
+\begin{enumerate}
+    \item[(a)] (35, 15).
+    \item[(b)] (154878552455, 98871521).
+    \item[(c)] (9784515182034984165, 3164547984351248).
+    \item[(d)] (54321, 9876).
+    \item[(e)] (12345, 67890).
+\end{enumerate}
+
+\question{3}{Linear Combination of Multiple(10 pts)}
+Show that if $d|n$ and $d|m$, then for any $s,t\in \Z$,
+\[
+    d| (sn + tm).
+\]
+
+\question{4}{Divisibility and GCD, (Friendly) Exercise 7.1 and 7.2. (20 pts, 10 each,)}
+Hint: use extended GCD algorithm to get a fancy way of writing one!
+\begin{enumerate}
+    \item[(a)] Suppose that $\gcd(a,b)=1$, and suppose further that $a$ divides the product $bc$. Show that $a$ must divide $c$.
+    \item[(b)] Suppose that $\gcd(a,b)=1$, and suppose further that $a$ divides $c$ and $b$ divides $c$. Show that the product $ab$ must divide $c$.
+\end{enumerate}
+
+\end{document}

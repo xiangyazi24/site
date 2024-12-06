@@ -1,0 +1,249 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings} % for code listing
+\usepackage{xcolor}  % for the colors
+
+
+%% listing style
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+%% end of listing style
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+\newcommand\solution{\vspace{.10in}\textbf{Solution: }}
+
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+%%% end of theorem styles
+
+%%%===========algorithm
+%% algorithm
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{etoolbox}
+
+\makeatletter
+% start with some helper code
+% This is the vertical rule that is inserted
+\newcommand*{\algrule}[1][\algorithmicindent]{%
+  \makebox[#1][l]{%
+    \hspace*{.2em}% <------------- This is where the rule starts from
+    \vrule height .75\baselineskip depth .25\baselineskip
+  }
+}
+
+\newcount\ALG@printindent@tempcnta
+\def\ALG@printindent{%
+    \ifnum \theALG@nested>0% is there anything to print
+    \ifx\ALG@text\ALG@x@notext% is this an end group without any text?
+    % do nothing
+    \else
+    \unskip
+    % draw a rule for each indent level
+    \ALG@printindent@tempcnta=1
+    \loop
+    \algrule[\csname ALG@ind@\the\ALG@printindent@tempcnta\endcsname]%
+    \advance \ALG@printindent@tempcnta 1
+    \ifnum \ALG@printindent@tempcnta<\numexpr\theALG@nested+1\relax
+    \repeat
+    \fi
+    \fi
+}
+% the following line injects our new indent handling code in place of the default spacing
+\patchcmd{\ALG@doentity}{\noindent\hskip\ALG@tlm}{\ALG@printindent}{}{\errmessage{failed to patch}}
+\patchcmd{\ALG@doentity}{\item[]\nointerlineskip}{}{}{} % no spurious vertical space
+% end vertical rule patch for algorithmicx
+\makeatother
+%%% ==========end of algorithm
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{NetID}}     % your ISU id
+\newcommand\HWNUM{1}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\textbf{Reading:}
+\begin{enumerate}
+    \item P\'eter G\'acs's slides page 26 - 52.
+    \item Chapter 1 section 1 to 5 \textit{Discrete Mathematics and Its Applications (7th Edition)}.
+\end{enumerate}
+
+\textbf{Please write out the intermediate steps when you construct the truth tables.} For example, to do $((p \land q) \to (p \lor q))$, you might want to have a column for $p\land q$ and another for $p\lor q$, before you calculate results for $((p \land q) \to (p \lor q))$.
+
+The enumeration of the truth assignment needs to be in an \textbf{increasing order} in binary encoding, e.g., 000, 001, ..., 111.
+\section{Truth Tables}
+\question{1}{Construct Truth Tables (10 pts) **}
+Construct a truth table for each of these compound propositions. Note that in the following $p\leftrightarrow q$ is defined as $(p\leftarrow q)\land (q\leftarrow p)$. Do you reading to find truth table for the operation.
+\begin{enumerate}
+    \item $((p \land q) \to (p \lor q))$.
+    \item $(p\lor q)\to (p\oplus q)$.
+    \item $(p \leftrightarrow q) \oplus (\neg p \leftrightarrow \neg r)$
+\end{enumerate}
+
+Here is an example of a truth table by \LaTeX.
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+p & q & p \land q\\ % Use & to separate the columns
+\hline % Put a horizontal line between the table header and the rest.
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & F\\
+\end{array}
+\end{displaymath}
+\question{2}{Logical equivalences (10 pts) ***}
+You can show the following logical equivalences by truth tables or by equivalence laws.
+\begin{enumerate}
+    \item Show that $(p \to q) \lor (p \to r)$ and $p \to (q \lor r)$ are logically equivalent.
+    \item Show that $\neg p \to (q \to r)$ and $q \to (p \lor r)$ are logically.
+equivalent
+\end{enumerate}
+
+\question{3}{First Order Logic On Finite Domain (10 pts) **}
+Suppose the domain of the propositional function P (x, y)
+consists of pairs x and y, where $x\in \{1,2\}$ and $y\in \{1,2,3\}$. Write out the following propositions using disjunctions ($\lor$)
+and conjunctions ($\land$). (This problem help you see that in \textbf{finite domain} you can express the same set of statement without quantifiers.)
+
+\begin{enumerate}
+    \item[(a)] $\forall x \forall y P(x,y)$,
+    \item[(b)] $\exists x \exists y P(x,y)$,
+    \item[(c)] $\exists x \forall y P(x,y)$,
+    \item[(d)] $\forall y \exists x P(x,y)$.
+\end{enumerate}
+
+\question{4}{Nested Quantifiers On Finite Domain and Loops (10 pts) ***}
+In Page 58 of \textit{Discrete Mathematics and Its Applications (7th Edition)}  there is a remark ``THINKING OF QUANTIFICATION AS LOOPS''. Suppose now you need to write a code block to check if a first order logic statement with nested quantifier to be true or not. For example, let P(x,y) be the same as Question 1, and x, y now range over 0 to 100 (not including 100), to check if $\forall x\forall y P(x,y)$, you might want to do
+
+\begin{lstlisting}[language=Java, caption=Java example]
+boolean AA_P_xy() // A for ``forall'',
+{
+    for(i=0;i<100; i++)
+    {
+        for(j=0;j<100; j++)
+        {
+            if(P(x,y)==false)) return false; // one pair of such (x,y) is enough
+        }
+    }
+    return true;
+}
+\end{lstlisting}
+You tasks, write code block for checking
+\begin{enumerate}
+    \item $\exists x \exists y P(x,y)$, name your function as ``EE\_P\_xy''.
+
+    \item $\exists x \forall y P(x,y)$, name your function as ``EA\_P\_xy''.
+
+    \item $\forall x \exists y P(x,y)$, name your function as ``AE\_P\_xy''.
+\end{enumerate}
+
+
+
+\question{5}{contrapositve proof (10 pts)}
+Should that if $a + b + c >  2022$, then one of the following must hold:
+\begin{enumerate}
+     \item[(a)] $a > 2000$.
+     \item[(b)] $b> -10 + \sqrt{3}$.
+     \item[(c)] $ c> 32 -\sqrt{3}$.
+ \end{enumerate}
+\end{document}

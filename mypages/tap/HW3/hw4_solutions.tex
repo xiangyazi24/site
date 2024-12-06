@@ -1,0 +1,130 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+%% set builder helper
+%
+\usepackage{xparse}
+\usepackage{mathtools}
+\DeclarePairedDelimiterX{\set}[1]{\{}{\}}{\setargs{#1}}
+\NewDocumentCommand{\setargs}{>{\SplitArgument{1}{;}}m}
+{\setargsaux#1}
+\NewDocumentCommand{\setargsaux}{mm}
+{\IfNoValueTF{#2}{#1} {#1\nonscript\:\delimsize\vert\allowbreak\nonscript\:\mathopen{}#2}}%
+\def\Set{\set*}%
+
+\usepackage{diagbox} % for the table
+\usepackage{hyperref}
+%%% end of theorem styles
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{UISid}}     % your UIS id
+\newcommand\HWNUM{3}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+This document provide extra information about problem 3.
+
+How to use this document:\textbf{You can read this document. However, when you write your own proof, you must set it aside.}
+
+Other Materials that might help:
+\begin{enumerate}
+    \item A proof that uses interesting metaphor: ``humbel'' and ``cocky''.\href{http://mathcenter.oxford.emory.edu/site/math125/powerSetCardinality/}{Link.} (If you can not open the link directly. Try right click, then copy link.)
+\end{enumerate}
+
+
+
+
+\question{3}{Larger Cardinality Always Exists(10 pts ****)}
+Show that $|A|< |\mathcal{P}(A)|$, for any set $A$, where $\mathcal{P}(A)$ denotes the powerset of $A$.
+
+[Hint: Suppose an onto (or bijection) function f existed between $A$ and $\mathcal{P}(A)$ . Let \[
+    T=\{a\in A|a\not\in f(a)\}
+\]and show that no element $a$ can
+exist for which $f(a)=T$. If that happens, will $T$ contains $a$?  ]
+
+Fun fact: The argument goes somewhat like the \href{https://www.youtube.com/watch?v=nI-MMJiFpqo}{The Paradox of the Barber}(https://www.youtube.com/watch?v=nI-MMJiFpqo).
+
+
+\begin{proof}
+    Let $T$ be as mentioned above.
+    Let`s assume the opposite and let $f(a)= T$. The we will have the following paradox:
+     \begin{enumerate}
+         \item $a$ can not be in $T$.  If $a\in T$, then $a\in f(a)$, then by $T$'s definition, $a\not \in T$.
+         \item $a$ can not be not in $T$. If $a\not \in T$, then $a\in f(a)$, then by $T$'s definition, $a\in T$.
+     \end{enumerate}
+     Both cases results in contradiction.
+     Therefore, the assumption $f(a)=T$ for some $a$ fails, which means $T$ does not have a preimage under $f$. Hence $f$ is not an onto function.
+\end{proof}
+
+\end{document}

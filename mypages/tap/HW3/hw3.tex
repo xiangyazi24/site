@@ -1,0 +1,170 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\usepackage{diagbox} % for the table
+\usepackage{hyperref}
+%%% end of theorem styles
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{UISid}}     % your ISU id
+\newcommand\HWNUM{3}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+
+\textbf{Reading}: Section 2.3 and 2.5 of the reference book \textit{Discrete Mathematics and Its Applications (7th Edition).}
+
+ Extra video: the video link of a proof of \href{https://www.youtube.com/watch?v=IkoKttTDuxE}{Cantor-Schr\"oder-Berbstein Theorem}
+
+Next lecture we will talk about logic.
+
+\begin{notation}
+Recall that we adopt the following convention on notations.
+\begin{enumerate}
+    \item The notation $\N$ = the set of all natural numbers.
+    \item The notation $\Z$ = the set of all whole numbers.
+    \item The notation $\Q$ = the set of all rational numbers.
+    \item The notation $\R$ = the set of all real numbers.
+\end{enumerate}
+\end{notation}
+\section{Cardinality}
+\question{1}{$|{\N}|= |{\Z}|$ (10 pts)}
+Define a bijection $f:\Z \to \N$.Explain why the function you define is a bijection.
+
+
+\question{2} {Diagonal Argument (10 pts ***)}
+This question prepares you to answer the next question.
+Suppose there exist an onto function between the set $A=\{1,2,3,4\}$ and the powerset of $A$, i.e., $\mathcal{P}(A)$. For example, the following table represent a function $f:A\to \mathcal{P}(A)$
+
+\begin{center}
+
+\begin{tabular}{|l||*{5}{c|}}\hline
+\diagbox{$n$}{$f(n)$}
+&\makebox[3em]{1}&\makebox[3em]{2}&\makebox[3em]{3}
+&\makebox[3em]{4}&\makebox[3em]{$f(n)$}\\\hline\hline
+1&1&0&1&1& $\{1,3,4\}$\\\hline
+2 &0&1&1&0&$\{2,3\}$\\\hline
+3 &1&1&0&1&$\{1,2,4\}$\\\hline
+4 &0&0&0&0&$\emptyset$\\\hline
+\end{tabular}
+
+\end{center}
+Note that in the above table, we use $0$ to present an element NOT in a set and 1 for in. So we can see $1\mapsto \{1,3,4\}$ and the representation for the image is $1011$; and $4\mapsto \emptyset$ and the representation is $0000$.
+
+Your task: Show the above function $f$ is not an onto function by Diagonal Argument. (Surely you will say this is too obvious since we are talking about a finite set, but don't forget this problem is for demonstration purpose.) You will need to construct a set $T$ that is in $\mathcal{P}(A)$ but not the the range of $f$. Let $d_1d_2d_3d_4$ be the 4-bit representation of $T$, the diagonal argument will tell us to do
+
+\[
+    d_n=\begin{cases}
+     0, \quad\text{if $n\in f(n)$}.\\
+     1, \quad\text{if $n\not\in f(n)$}
+    \end{cases}
+\]
+Simply put it, you will just do the opposite on the diagonal. A conciser way to write it
+\[
+    T=\{n\mid n\not \in f(n) \}.
+\]
+ Or you will only include an element $n$ in $T$ if it is not in $f(n)$.
+
+
+\textbf{Question: What is the resulting $T$ out of the above table/function $f$?}
+
+\question{3}{Larger Cardinality Always Exists(10 pts ****)}
+Show that $|A|< |\mathcal{P}(A)|$, for any set $A$, where $\mathcal{P}(A)$ denotes the powerset of $A$.
+
+[Hint: Suppose an onto (or bijection) function f existed between $A$ and $\mathcal{P}(A)$ . Let \[
+    T=\{a\in A|a\not\in f(a)\}
+\]and show that no element $a$ can
+exist for which $f(a)=T$. If that happens, will $T$ contains $a$?  ]
+
+Fun fact: The argument goes somewhat like the \href{https://www.youtube.com/watch?v=nI-MMJiFpqo}{The Paradox of the Barber}(https://www.youtube.com/watch?v=nI-MMJiFpqo).
+
+\question{4}{One to One Correspondence}
+Determine whether each of these functions is a one-to-one correspondence (a.k.a. ``bijection'') from $\R$ to $\R$.
+\begin{enumerate}
+    \item $f(x)=2x+1$.
+    \item $f(x)=x^2+1$.
+    \item $f(x)=x^3+1$.
+    \item $f(x)=\frac{x^2+1}{x^2+2}$.
+    \item $f(x)=\frac{1}{x}+ \frac{1}{x-1}$.
+\end{enumerate}
+
+\question{5}{Reading and Writing: Schr\"oder-Berbstein Theorem}
+\begin{enumerate}
+    \item Define a notion of $|A|\leq |B|$ through functions.
+    \item Define a notion of $|A|\geq |B|$ through functions.
+    \item State Schr\"oder-Berbstein Theorem and give an application example. Why is Schr\"oder-Berbstein Theorem useful?
+\end{enumerate}
+\question{6}{Extra:Application of Schr\"oder-Berbstein Theorem (10 pts ***)}
+Use the theorem to show that $(1,2)$ and $[1,2]$ has the same cardinality.
+\end{document}

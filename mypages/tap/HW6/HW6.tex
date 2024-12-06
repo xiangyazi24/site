@@ -1,0 +1,194 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+\newcommand\solution{\vspace{.10in}\textbf{Solution: }}
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator*{\dprime}{{\prime \prime}}
+%%% end of theorem styles
+
+%%%===========algorithm
+%% algorithm
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{etoolbox}
+
+\makeatletter
+% start with some helper code
+% This is the vertical rule that is inserted
+\newcommand*{\algrule}[1][\algorithmicindent]{%
+  \makebox[#1][l]{%
+    \hspace*{.2em}% <------------- This is where the rule starts from
+    \vrule height .75\baselineskip depth .25\baselineskip
+  }
+}
+
+\newcount\ALG@printindent@tempcnta
+\def\ALG@printindent{%
+    \ifnum \theALG@nested>0% is there anything to print
+    \ifx\ALG@text\ALG@x@notext% is this an end group without any text?
+    % do nothing
+    \else
+    \unskip
+    % draw a rule for each indent level
+    \ALG@printindent@tempcnta=1
+    \loop
+    \algrule[\csname ALG@ind@\the\ALG@printindent@tempcnta\endcsname]%
+    \advance \ALG@printindent@tempcnta 1
+    \ifnum \ALG@printindent@tempcnta<\numexpr\theALG@nested+1\relax
+    \repeat
+    \fi
+    \fi
+}
+% the following line injects our new indent handling code in place of the default spacing
+\patchcmd{\ALG@doentity}{\noindent\hskip\ALG@tlm}{\ALG@printindent}{}{\errmessage{failed to patch}}
+\patchcmd{\ALG@doentity}{\item[]\nointerlineskip}{}{}{} % no spurious vertical space
+% end vertical rule patch for algorithmicx
+\makeatother
+%%% ==========end of algorithm
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{UISid}}     % your ISU id
+\newcommand\HWNUM{6}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+You should read Ch3 of the text, or Ch5 of the reference book \textit{Discrete Math and Its Application} to make sure you are familiar with the basic definitions before you start working on this assignment.
+
+\section{Mathematical Induction}
+\question{1}{Cube Sum. (7th Ed P329 Q4, 10 pts) **}
+Let $P(n)$ be the statement that $1^3+2^3+\ldots +n^3= \bigg(\frac{n(n+1)}{2}\bigg)^2$ for positive integer $n$.
+
+\begin{enumerate}
+    \item[(a)] What is the statement $P(1)$?
+    \item[(b)] Show that $P(1)$ is true, completing the basis step of the proof.
+    \item[(c)] What is the inductive hypothesis?
+    \item[(d)] What do you need to prove the inductive step?
+    \item[(e)] Complete the inductive step, identifying where you use the inductive hypothesis.
+    \item[(f)] Explain why these steps show that this formula is true whenever $n$ is a positive integer.
+\end{enumerate}
+\
+\question{2}{Wrong Proof!  (Text Page 24, 3.12. 10 pts)}
+Read carefully the following induction proof:
+
+\textbf{Assertion}: $n(n + 1)$ is an odd number for every $n$.
+
+\begin{proof}
+Suppose that this is true for $n-1$ in place of $n$; we prove it for $n$, using the induction hypothesis. We have $n(n + 1) = (n-1)n + 2n$.
+Now here $(n-1)n$ is odd by the induction hypothesis, and $2n$ is even. Hence $n(n + 1)$ is the sum of an odd number and an even number, which is odd.
+\end{proof}
+The assertion that we proved is obviously wrong for n = 10: 10 · 11 = 110 is even.
+
+What is wrong with the proof? Give you answer in one short sentense.
+
+\question{3}{Wrong Proof! (Text Page 24, 3.13. 10 pts)}
+Read carefully the following induction proof:
+
+\textbf{Assertion}: If we have $n$ lines in the plane, no two of which are parallel, then they all go through one point.
+\begin{proof}
+The assertion is true for one line (and also for 2, since we have assumed that no two lines are parallel). Suppose that it is true for any set of $n-1$ lines. We are going to prove that it is also true for $n$ lines, using this induction hypothesis.
+
+So consider a set of $S = \{a, b, c, d,\cdots\} $of $n$ lines in the plane, no two of which are parallel. Delete the line c, then we are left with a set $S^{\prime}$ of $n-1$lines, and obviously no two of these are parallel. So we can apply the induction hypothesis and conclude that there is a point $P$ such that all the lines in $S^{\prime}$ go through $P$ . In particular, $a$ and $b$ go through $P$ , and so $P$ must be the point of intersection of $a$ and $b$.
+
+Now put $c$ back and delete $d$, to get a set $S^{\dprime}$ of $n-1$ lines. Just as above, we can use the induction hypothesis to conclude that these lines go through the same point $P^{\prime}$ ; but
+just like above, $P^\prime$ must be the point of intersection of $a$ and $b$. Thus $P^\prime = P$. But then we see that $c$ goes through $P$ . The other lines also go through $P$ (by the choice of $P$ ), and so all the $n$ lines go through $P$ .
+\end{proof}
+
+But the assertion we proved is clearly wrong; where is the error? Keep you answer short.
+
+
+\question{4}{Postage Problem (10 pts ***)}
+Let $P(n)$ be the statement that a postage of $n$ cents can be
+formed using just 4-cent stamps and 7-cent stamps. The parts of this exercise outline a strong induction proof that $P(n)$ is true for $n\geq 18$.
+
+\begin{enumerate}
+    \item[(a)]  Show statements $P(18)$, $P(19)$, $P(20)$, and $P(21)$
+are true, completing the basis step of the proof.
+    \item[(b)] What is the inductive hypothesis of the proof?
+    \item[(c)] What do you need to prove in the inductive step?
+    \item[(d)] Complete the inductive step for $k\geq 21$.
+     \item[(e)] Explain why these steps show that this statement is
+true whenever $n\geq 18$.
+\end{enumerate}
+
+\question{5}{Line and Faces(10 pts ***)}
+
+ Suppose that we draw $n$ lines in the plane, in general position (no lines are parallel, no point belongs to more than two lines). The lines divide up the plane into a set of regions. Prove the following claim, for any positive integer n:
+
+Claim: we can color these regions with two colors, such that adjacent regions (i.e. touching along an edge) never have the same color.
+
+You can find hints \href{https://mfleck.cs.illinois.edu/study-problems/easy-induction/easy-induction.html}{here}(https://mfleck.cs.illinois.edu/study-problems/easy-induction/easy-induction.html) if you get stuck.
+
+\end{document}

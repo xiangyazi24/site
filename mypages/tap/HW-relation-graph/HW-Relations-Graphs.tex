@@ -1,0 +1,185 @@
+%=====================ComS 511 LaTeX template, following the CMU 02-713 template================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{times}
+\usepackage{zi4}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\newcommand\construction{\vspace{.10in}\textbf{Construction:}}
+\newcommand\solution{\vspace{.10in}\textbf{Solution: }}
+
+%%%%% theorem styles
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+%%% end of theorem styles
+
+%%%===========algorithm
+%% algorithm
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{etoolbox}
+
+\makeatletter
+% start with some helper code
+% This is the vertical rule that is inserted
+\newcommand*{\algrule}[1][\algorithmicindent]{%
+  \makebox[#1][l]{%
+    \hspace*{.2em}% <------------- This is where the rule starts from
+    \vrule height .75\baselineskip depth .25\baselineskip
+  }
+}
+
+\newcount\ALG@printindent@tempcnta
+\def\ALG@printindent{%
+    \ifnum \theALG@nested>0% is there anything to print
+    \ifx\ALG@text\ALG@x@notext% is this an end group without any text?
+    % do nothing
+    \else
+    \unskip
+    % draw a rule for each indent level
+    \ALG@printindent@tempcnta=1
+    \loop
+    \algrule[\csname ALG@ind@\the\ALG@printindent@tempcnta\endcsname]%
+    \advance \ALG@printindent@tempcnta 1
+    \ifnum \ALG@printindent@tempcnta<\numexpr\theALG@nested+1\relax
+    \repeat
+    \fi
+    \fi
+}
+% the following line injects our new indent handling code in place of the default spacing
+\patchcmd{\ALG@doentity}{\noindent\hskip\ALG@tlm}{\ALG@printindent}{}{\errmessage{failed to patch}}
+\patchcmd{\ALG@doentity}{\item[]\nointerlineskip}{}{}{} % no spurious vertical space
+% end vertical rule patch for algorithmicx
+\makeatother
+%%% ==========end of algorithm
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\UISID)}}
+\chead{\textbf{HW\HWNUM}}
+\rhead{\textsc{CSC 302}, \today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Xiang Huang}  % your name
+\newcommand\UISID{\texttt{UISid}}     % your UIS id
+\newcommand\HWNUM{12}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\textbf{Reading:}
+
+\question{1}{Trivial Equivalent Relation (10 pts) *}
+Consider all the binary strings of length 3, or S=$\{0,1\}^3$ If we say for $s, t \in S$, $s R t$ if and only if $s=t$. Then what are all the equivalent classes?
+
+\question{2}{Binary String Equivalence (10 pts) **}
+Let $S=\{0,1\}^4$, that is, all the binary strings of length 4. Let relation $R$ be defined as for $s,t\in S$,
+$s R t$ if and only if $s$ and $t$ has the same number of zeros.
+
+\begin{enumerate}
+  \item[(a)] Show $R$ is an equivalent relation.
+  \item[(b)] List all the equivalent classes. Please recall that a equivalent class is a subset of S, and the equivalent classes form a partition of $S$.
+\end{enumerate}
+
+
+\question{3}{Binary String Equivalence II (10 pts) **}
+Let $S=\{0,1\}^4$,that is, all the binary strings of length 4. For $s, t$ be a string in $S$, we define $sRt$ if and only $t$ can be obtained from $s$ by rotatation. For example, we can get $1011$ by rotating $0111$ to the right.
+
+\begin{enumerate}
+  \item[(a)] Show $R$ is an equivalent relation.
+  \item[(b)] List all the equivalent classes.
+\end{enumerate}
+
+\question{4}{Counting Partisions or Equivalent Class (10 pts) *** }
+
+Let $p(n)$ denote the number of different equivalence
+relations on a set with $n$ elements (or equivalently, the number of partitions of a set with n elements). Show that $p(n)$ satisfies the recurrence relation
+ \[
+   p(n)=\sum_0^{n-1} \binom{n-1}{j} p(n-1-j),
+ \]
+ and the initial
+condition p(0) = 1. \\
+
+Hint: Use recursive thinking. Consider the last element $a_n$, and the rest of $n-1$ elements. Is $a_n$ going to be in the same partition with any of the rest of $n-1$ elements? How many?
+\question{5}{Seven Bridges of K\"onigsberg}
+
+ Read/watch the following materials and write a report on Euler's analysis and rewrite his proof of his following theorem.
+ \begin{enumerate}
+   \item \href{https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg}{Seven Bridges of K\"onigsberg}
+   \item \href{https://www.youtube.com/watch?v=dSK5jTEe-AM}{Euler Paths \& the 7 Bridges of Konigsberg }
+ \end{enumerate}
+
+ \begin{theorem}{Euler's Theorem:}
+    A connected graph has an Euler cycle if and only if every vertex has even degree.
+ \end{theorem}
+
+ You might want to read the Wiki page for \href{https://en.wikipedia.org/wiki/Eulerian_path}{Eulerian Path} for more information.
+
+ In case you can not open the link, here are the list of links:
+
+ \begin{verbatim}
+  1. https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg
+  2. https://www.youtube.com/watch?v=dSK5jTEe-AM
+  3. https://en.wikipedia.org/wiki/Eulerian_path
+ \end{verbatim}
+
+
+
+
+\end{document}
