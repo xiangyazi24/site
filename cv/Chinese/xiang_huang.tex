@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Chinese CV Translation %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+% !TeX program  = XeLaTeX
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{comment}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[UTF8]{ctex} % for Chinese support
+\usepackage{etaremune} % reverse enumberate
+\graphicspath{ {images/}} %upload your signature to this file
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{lastpage} % for the page number
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+               %     \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%Skype information
+\newcommand*{\Skype}{\href{skype:xiangyazi24?add}{xiangyazi24}}
+\newcommand{\Absender}[1][\normalsize]{\Skype}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{\Large{黄湘} \hfill 伊利诺伊大学斯普林菲尔德分校}
+
+\section{联系方式}
+
+\begin{center}
+\begin{tabular}{l l}
+ 计算机科学系 & \href{mailto:xhuan5@uis.edu}{xhuan5@uis.edu} \\
+ 3115 UHB, One University Plaza & 电话: +1 (217) 206-8336 \\
+ Springfield, IL 62703-5407, USA &
+\end{tabular}
+\end{center}
+
+\section{当前职位}
+助理教授，伊利诺伊大学斯普林菲尔德分校，美国伊利诺伊州斯普林菲尔德（2020年8月至今）。
+
+\section{个人网站}
+\href{https://www.xianghuang.org}{\textbf{xianghuang.org}}
+
+\section{研究兴趣}
+算法信息论、模拟计算、DNA/分子编程、正规数与理论计算机科学。
+
+\section{访问职位}
+访问学者，加州理工学院（2024年8月至2024年12月，\href{https://www.dna.caltech.edu/~winfree/}{Erik Winfree}实验室）。 \\
+访问助理教授，勒莫因学院，纽约州雪城市（2019年9月至2020年6月）。
+
+\section{教育背景}
+
+\href{http://www.iastate.edu/}{\textbf{爱荷华州立大学}}，美国爱荷华州
+\begin{outerlist}
+\item[] {计算机科学博士，2020年。}
+        \begin{innerlist}
+        \item 论文：\emph{Chemical Reaction Networks: Computability, Complexity, and Randomness}。
+        \item 导师：\href{http://jacklutz.com}{Jack H. Lutz}。
+        \end{innerlist}
+\end{outerlist}
+
+\href{http://english.is.cas.cn/}{\textbf{中国科学院软件研究所}}
+\begin{outerlist}
+\item[] {计算机科学，2009年9月至2012年6月。}
+        \begin{innerlist}
+        \item 研究方向：\emph{模型检验、形式化方法、自动机理论}。
+        \end{innerlist}
+\end{outerlist}
+
+\href{http://www.nju.edu.cn}{\textbf{南京大学}}
+\begin{outerlist}
+\item[]{软件工程学士，2005年9月至2009年6月}。
+\end{outerlist}
+
+\section{资助与基金}
+\vspace{5mm}
+外部资助：
+\begin{etaremune}
+   \item 项目负责人（PI）：\textit{Towards A Hierarchy of Real Numbers Computable by CRN}，\$400,000，美国能源部EXPRES项目基金，2023--2025。
+\end{etaremune}
+
+伊利诺伊大学斯普林菲尔德分校及伊利诺伊大学系统内部资助：
+\begin{etaremune}
+    \item 国立台湾大学-伊利诺伊大学系统访问基金项目，\$5,000，2024年。
+    \item 竞争性学术研究基金，\$5,000，2023--2024。
+    \item 基金申请指导奖，\$1,500，2022--2023。
+    \item Leadership Lived Experience (LLE)学生就业计划，\$4,000，2022年。
+\end{etaremune}
+
+\section{期刊论文}
+\begin{etaremune}
+    \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull, ``Asymptotic divergences and strong dichotomy,'' \textit{IEEE Transactions on Information Theory} 67 (2021), pp. 6296--6305.
+    \item Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li and Jack H. Lutz, ``Real-Time Computability of Real Numbers by Chemical Reaction Networks,'' \textit{Natural Computing} 18(1) (2019), pp. 63--73 \textbf{(invited paper)}.
+\end{etaremune}
+
+\section{会议论文}
+\begin{etaremune}
+  \item[] (带下划线的为指导的学生)
+  \item Xiang Huang and \underline{Rachel Huls}, ``Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria,'' \textit{The 28th International Conference on DNA Computing and Molecular Programming} (DNA 28, Albuquerque, NM, August 8--12, 2022).
+  \item Xiang Huang, Jack H. Lutz, Elvira Mayordomo, and Donald M. Stull, ``Asymptotic divergences and strong dichotomy,'' \textit{Proceedings of the Thirty-seventh Symposium on Theoretical Aspects of Computer Science} (STACS 2020, Montpellier, France, March 10--13, 2020).
+  \item Xiang Huang, Jack H. Lutz, and Andrei N. Migunov, ``Algorithmic Randomness in Continuous-Time Markov Chains,'' \textit{Proceedings of the 57th Annual Allerton Conference on Communication, Control, and Computing} (2019).
+  \item Xiang Huang, Titus H. Klinge, and James I. Lathrop, ``Real-Time Equivalence of Chemical Reaction Networks and Analog Computers,'' \textit{DNA Computing and Molecular Programming} (DNA 2019), Lecture Notes in Computer Science, vol. 11648, Springer, Cham.
+  \item Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li, and Jack H. Lutz, ``Real-Time Computability of Real Numbers by Chemical Reaction Networks,'' \textit{Proceedings of the 16th International Conference on Unconventional Computation and Natural Computation} (UCNC 2017), pp. 29--40.
+  \item Xiang Huang and Donald M. Stull, ``Polynomial Space Randomness in Analysis,'' \textit{Proceedings of the 41st International Symposium on Mathematical Foundations of Computer Science} (MFCS 2016), 86:1--86:13.
+\end{etaremune}
+
+\section{同行评审的研讨会论文/扩展摘要}
+\begin{etaremune}
+  \item Xiang Huang and Andrei N. Migunov, ``A General Purpose Analog Computer to Population Protocol Compiler,'' \textit{In Proceedings of the 21st ACM International Conference on Computing Frontiers Workshops and Special Sessions (CF '24 Companion)}, May 2024.
+\end{etaremune}
+
+\section{教材章节}
+\begin{etaremune}
+    \item Xiang Huang, ``Deterministic Chemical Reaction Network,'' completed chapter for \textit{The Art of Molecular Programming}. Part of a DNA/molecular programming community initiative to create a comprehensive molecular programming textbook (\href{https://molecularprogrammers.org/#aomp}{molecularprogrammers.org}).
+\end{etaremune}
+
+\section{奖项}
+\begin{etaremune}
+  \item 纳米科学、计算与工程国际学会(ISNSCE) \href{https://isnsce.org/awards/the-dna-student-awards/}{最佳学生报告奖}，第25届DNA计算与分子编程国际会议(DNA25)，2019年8月。
+  \item 优秀教学奖，爱荷华州立大学，2017年。
+\end{etaremune}
+
+\section{特邀报告}
+\textit{Computing Real Numbers with Large-Population Protocols}，Swarthmore学院，2023年10月。 \\
+\textit{Some Thoughts on Normality, Algorithmic Randomness, and Analog Computing}，第五届南京大学青年论坛，2020年5月（远程）。 \\
+\textit{Asymptotic Divergences and Strong Dichotomy}，爱荷华信息、复杂性与逻辑研讨会(ICICL)，2019年春季。
+
+\section{学术报告}
+\textit{Computing Real Numbers with Large-Population Protocols Having a Continuum of Equilibria}，DNA 28，2022年8月。 \\
+\textit{Real-Time Equivalence of Chemical Reaction Networks and Analog Computers}，DNA 25，2019年8月。 \\
+\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}，第19届逻辑研究生会议，威斯康星州麦迪逊，2018年4月。 \\
+\textit{Real-Time Computability of Real Numbers by Chemical Reaction Networks}，UCNC 2017。
+
+\section{教学经验}
+
+\textbf{伊利诺伊大学斯普林菲尔德分校}
+\begin{itemize}
+  \item[] CSC 570F -- 研究生算法与应用 \hfill {2023年春季}
+  \item[] CSC 302 -- 离散结构 \hfill {2020年秋季至今}
+  \item[] CSC 482 -- 算法与计算理论 \hfill {2020年秋季至今}
+\end{itemize}
+
+\textbf{勒莫因学院}
+\begin{itemize}
+\item[] CSC 175 -- 算法与程序设计导论 \hfill {2019年秋季}
+\item[] CSC 170 -- Java导论（无编程经验） \hfill {2020年春季}
+\item[] CSC 176 -- Java导论（第二门编程课程） \hfill {2020年春季}
+\item[] CSC 276 -- 使用Java的面向对象设计 \hfill {2020年春季}
+\end{itemize}
+
+\textbf{爱荷华州立大学（助教）}
+\begin{itemize}
+\item[] COM S 531 -- 计算理论（研究生） \hfill {2014年春季，2016年春季}
+\item[] COM S 511 -- 算法设计与分析（研究生） \hfill {2014年秋季，2015年秋季，2017年秋季}
+\item[] COM S 331 -- 计算理论 \hfill {2016年秋季，2019年春季}
+\item[] COM S 311 -- 算法设计 \hfill {2015年夏季，2016年夏季，2018年秋季}
+\item[] COM S 330 -- 离散数学结构 \hfill {2014年春季}
+\item[] COM S 252 -- 操作系统导论 \hfill {2013年秋季}
+\end{itemize}
+
+\section{本科生研究指导}
+精选本科生研究项目（完整列表见\href{https://www.xianghuang.org/mypages/research.html}{xianghuang.org}）：
+\begin{innerlist}
+\item Rachel Huls（2021--2022年）：大规模群体协议计算能力研究，发表于DNA 28，\href{https://arxiv.org/abs/2206.06594}{论文链接}。
+\item Anish Sinha（2022--2023年）：并发B-Link树。获得UIS STARS 2023最佳研究成果奖。
+\item Jonathan Miller（2023年）：大整数乘法算法研究。\href{https://www.xianghuang.org/mypages/files/Mul_Survey.pdf}{综述论文链接}。
+\end{innerlist}
+
+共指导11名本科生（2021年至今）进行理论计算机科学研究。
+
+\end{document}
